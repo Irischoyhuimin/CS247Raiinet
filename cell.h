@@ -1,0 +1,28 @@
+#include <vector>
+#include "observer.h"
+#include "link.h"
+
+class Player;
+
+class Cell {
+    int x, y;
+    Link* link;
+    Player* firewallOwner;
+    bool serverPort;
+    std::vector<Observer*> observers;
+
+public:
+    Cell(int x, int y);
+    Link* getLink();
+    void setLink(Link* l);
+    void removeLink();
+    bool hasFirewall() const;
+    void setFirewall(Player* owner);
+    void removeFirewall();
+    bool isOccupied() const;
+    bool isServerPort() const;
+    void setServerPort(bool val);
+    void attach(Observer* o);
+    void detach(Observer* o);
+    void notifyObservers();
+};
