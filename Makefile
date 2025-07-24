@@ -2,7 +2,7 @@ CXX	= g++
 CXXFLAGS	= -std=c++17 -I/opt/X11/include
 LDFLAGS	= -L/opt/X11/lib -lX11
 
-SRCS	= main.cc game.cc game.cc board.cc player.cc link.cc 
+SRCS	= main.cc game.cc board.cc player.cc link.cc 
 OBJS	 = $(SRCS:.cc=.o)
 TARGET = raiinet
 
