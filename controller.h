@@ -1,3 +1,6 @@
+#ifndef CONTROLLER_H
+#define CONTROLLER_H
+
 #include <string>
 #include "game.h"
 #include "xwindow.h"
@@ -18,3 +21,4 @@ public:
     void parseSetup(const std::vector<std::string>& args);
     void printHelp();
 };
+#endif

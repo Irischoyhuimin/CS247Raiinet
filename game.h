@@ -1,3 +1,7 @@
+#pragma once
+
+#include <string>
+#include <vector>
 #include "board.h"
 #include "player.h"
 #include "xwindow.h"
@@ -15,12 +19,13 @@ class Game {
 public:
     Game(bool textOnly);
     Game(Xwindow* xw);
+
     void start();
     void init();
     void toggleEnhancements();
-    void move(std::string linkName, std::string dir);
-    void useAbility(std::string ability, const std::vector<std::string>& args);
+    void move(const std::string& linkId, const std::string& dir);
+    void useAbility(const std::string& ability, const std::vector<std::string>& args);
     void display() const;
-    bool isGameOver();
+    bool isGameOver() const;
     void switchPlayers();
 };

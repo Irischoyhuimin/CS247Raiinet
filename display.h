@@ -1,4 +1,5 @@
-#include "observer.h"
+#ifndef DISPLAY_H
+#define DISPLAY_H
 
 class Board;
 class Xwindow;
@@ -22,3 +23,4 @@ public:
     void redrawCell(int x, int y);
     void redrawBoard();
 };
+#endif

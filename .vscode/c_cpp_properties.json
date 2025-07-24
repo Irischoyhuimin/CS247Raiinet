@@ -1,0 +1,22 @@
+{
+  "version": 4,
+  "configurations": [
+    {
+      "name": "YourProjectName",
+      "includePath": [
+        "${workspaceFolder}/**",      // all your headers
+        "/opt/X11/include",           // macOS XQuartz headers
+        "/usr/local/include"          // any other libs
+      ],
+      "defines": [],
+      "macFrameworkPath": [
+        "/System/Library/Frameworks",
+        "/Library/Frameworks"
+      ],
+      "compilerPath": "/usr/bin/clang++",
+      "cStandard": "c17",
+      "cppStandard": "c++17",
+      "intelliSenseMode": "macos-clang-x64"
+    }
+  ]
+}

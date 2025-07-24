@@ -1,3 +1,5 @@
+#ifndef ABILITY_H
+#define ABILITY_H
 #include <string>
 
 class Player;
@@ -8,6 +10,7 @@ protected:
 
 public:
     Ability();
+    virtual ~Ability() = default;
     virtual void apply(Player& player) = 0;
     virtual bool isValid(Player& player) const = 0;
     bool isUsed() const;
@@ -17,3 +20,4 @@ public:
 
 // Subclasses: LinkBoost, Firewall, Download, Scan, Polarize, Heal, Mask, Swap
 // Each implements apply() and isValid()
+#endif 

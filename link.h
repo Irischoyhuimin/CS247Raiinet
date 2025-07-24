@@ -1,4 +1,7 @@
+#ifndef LINK_H
+#define LINK_H
 #include <string>
+using namespace std;
 
 class Player;
 
@@ -12,14 +15,16 @@ protected:
 
 public:
     Link(char id, Player* owner, int strength);
+    virtual ~Link() = default;
     virtual std::string getType() const = 0;
+
     char getId() const;
+    Player* getOwner() const;
     int getStrength() const;
+    bool downloaded() const;
+    void setDownloaded(bool val);
     bool hasBoost() const;
     void setBoost(bool boost);
-    void setDownloaded(bool downloaded);
-    bool downloaded() const;
-    Player* getOwner() const;
 };
 
 class Virus : public Link {
@@ -33,4 +38,4 @@ public:
     Data(char id, Player* owner, int strength);
     std::string getType() const override;
 };
-
+#endif
