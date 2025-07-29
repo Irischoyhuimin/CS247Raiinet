@@ -22,6 +22,7 @@ public:
     void addLink(Link* link);
     Link* getLinkById(char id) const;
     const std::vector<std::unique_ptr<Link>>& getLinks() const;
+    std::vector<std::unique_ptr<Link>>& getLinks();
 
     // --- Ability management ---
     void addAbility(std::unique_ptr<Ability> ability);

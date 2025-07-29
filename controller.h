@@ -2,6 +2,7 @@
 #define CONTROLLER_H
 
 #include <string>
+#include <vector>
 #include "game.h"
 #include "xwindow.h"
 
@@ -10,6 +11,7 @@ class Controller {
     bool setupMode;
     bool textOnly;
     Xwindow* xw;
+    bool abilityUsedThisTurn;
 
 public:
     Controller(bool textOnly);
@@ -18,7 +20,9 @@ public:
     void processCommand(const std::string& cmd);
     void parseMove(const std::vector<std::string>& args);
     void parseAbility(const std::vector<std::string>& args);
+    void parseSequence(const std::vector<std::string>& args);
     void parseSetup(const std::vector<std::string>& args);
     void printHelp();
 };
-#endif
+
+#endif // CONTROLLER_H

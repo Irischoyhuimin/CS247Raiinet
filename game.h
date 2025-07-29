@@ -20,12 +20,16 @@ public:
     Game(bool textOnly);
     Game(Xwindow* xw);
 
-    void start();
     void init();
+    void start();
     void toggleEnhancements();
-    void move(const std::string& linkId, const std::string& dir);
-    void useAbility(const std::string& ability, const std::vector<std::string>& args);
+
+    void move(const std::string& dir, const std::string& linkId);
+    void useAbility(const std::string& abilityIdx, const std::vector<std::string>& args);
     void display() const;
     bool isGameOver() const;
     void switchPlayers();
+
+    void loadLinkConfig(int playerNum, const std::string& filename);
+    void setAbilityOrder(int playerNum, const std::vector<std::string>& order);
 };
