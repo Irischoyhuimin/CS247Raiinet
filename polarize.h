@@ -7,9 +7,9 @@
 class Polarize : public Ability {
 public:
     Polarize() { used = false; }
-    void apply(Player& player) override {
+    void apply(Player& activePlayer, Player& opponentPlayer) override {
         // Invert boost state of all links
-        for (auto& lptr : player.getLinks()) {
+        for (auto& lptr : activePlayer.getLinks()) {
             lptr->setBoost(!lptr->hasBoost());
         }
         markUsed();

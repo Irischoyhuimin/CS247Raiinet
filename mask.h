@@ -8,10 +8,10 @@
 class MaskAbility : public Ability {
 public:
     MaskAbility() { used = false; }
-    void apply(Player& player) override {
+    void apply(Player& activePlayer, Player& opponentPlayer) override {
         // Conceal link IDs until next scan
         std::cout << "Mask applied: link IDs hidden until next scan.\n";
-        for (auto& lptr : player.getLinks()) {
+        for (auto& lptr : activePlayer.getLinks()) {
             lptr->setBoost(false); // use boost flag as mask placeholder
         }
         markUsed();

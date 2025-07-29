@@ -8,10 +8,10 @@
 class Scan : public Ability {
 public:
     Scan() { used = false; }
-    void apply(Player& player) override {
+    void apply(Player& activePlayer, Player& opponentPlayer) override {
         // Reveal all link strengths and statuses
-        std::cout << "-- Scan results for " << player.getName() << " --\n";
-        for (auto& lptr : player.getLinks()) {
+        std::cout << "-- Scan results for " << opponentPlayer.getName() << " --\n";
+        for (auto& lptr : opponentPlayer.getLinks()) {
             std::cout << "Link " << lptr->getId()
                       << ": Strength=" << lptr->getStrength()
                       << ", Downloaded=" << (lptr->downloaded() ? "Yes" : "No")

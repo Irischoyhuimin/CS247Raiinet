@@ -7,11 +7,11 @@
 class Download : public Ability {
 public:
     Download() { used = false; }
-    void apply(Player& player) override {
+    void apply(Player& activePlayer, Player& opponentPlayer) override {
         // Download the first available non-downloaded link
-        for (auto& lptr : player.getLinks()) {
+        for (auto& lptr : activePlayer.getLinks()) {
             if (!lptr->downloaded()) {
-                player.downloadLink(lptr.get());
+                activePlayer.downloadLink(lptr.get());
                 break;
             }
         }

@@ -7,9 +7,9 @@
 class LinkBoost : public Ability {
 public:
     LinkBoost() { used = false; }
-    void apply(Player& player) override {
+    void apply(Player& activePlayer, Player& opponentPlayer) override {
         // Boost all active (non-downloaded) links
-        for (auto& lptr : player.getLinks()) {
+        for (auto& lptr : activePlayer.getLinks()) {
             if (!lptr->downloaded()) {
                 lptr->setBoost(true);
             }

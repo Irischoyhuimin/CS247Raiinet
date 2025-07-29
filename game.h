@@ -6,30 +6,32 @@
 #include "player.h"
 #include "xwindow.h"
 
-class Game {
+class Game
+{
     Board board;
     Player player1;
     Player player2;
-    Player* activePlayer;
-    Player* inactivePlayer;
+    Player *activePlayer;
+    Player *inactivePlayer;
     bool enhancementsOn;
     bool textOnly;
-    Xwindow* xw;
+    Xwindow *xw;
 
 public:
     Game(bool textOnly);
-    Game(Xwindow* xw);
+    Game(Xwindow *xw);
 
     void init();
     void start();
     void toggleEnhancements();
 
-    void move(const std::string& dir, const std::string& linkId);
-    void useAbility(const std::string& abilityIdx, const std::vector<std::string>& args);
+    void move(const std::string &dir, const std::string &linkId);
+    void useAbility(const std::string &abilityIdx, const std::vector<std::string> &args);
     void display() const;
     bool isGameOver() const;
     void switchPlayers();
-
-    void loadLinkConfig(int playerNum, const std::string& filename);
-    void setAbilityOrder(int playerNum, const std::vector<std::string>& order);
+    Player &getCurrentPlayer();
+    const Player &getCurrentPlayer() const;
+    void loadLinkConfig(int playerNum, const std::string &filename);
+    void setAbilityOrder(int playerNum, const std::vector<std::string> &order);
 };

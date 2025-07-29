@@ -21,7 +21,7 @@ public:
     Board(Xwindow& xw);
     bool isInvalidMove(const Link& link, int x, int y, const Player& player) const;
     void move(Player* activePlayer, Player* inactivePlayer, Link& link, int x, int y);
-    void battle(Player& p1, Player& p2, Link& l1, Link& l2);
+    Link* battle(Player& p1, Player& p2, Link& l1, Link& l2);
     void setup();
     void setupLinks(Player& player, const string& config);
     void printTextDisplay() const;
@@ -30,5 +30,6 @@ public:
     bool opponentHasFireWallAt(int x, int y, Player* opponent) const;
     bool isOccupiedByOpponent(Player* opponent, int x, int y) const;
     bool isServerPort(int x, int y) const;
+    int getSize() const;
 };
 #endif

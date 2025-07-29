@@ -7,9 +7,9 @@
 class Swap : public Ability {
 public:
     Swap() { used = false; }
-    void apply(Player& player) override {
+    void apply(Player& activePlayer, Player& opponentPlayer) override {
         // Swap first two links in player's list
-        auto& links = player.getLinks();
+        auto& links = activePlayer.getLinks();
         if (links.size() >= 2) std::swap(links[0], links[1]);
         markUsed();
     }

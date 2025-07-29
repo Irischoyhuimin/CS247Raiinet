@@ -7,9 +7,9 @@
 class Heal : public Ability {
 public:
     Heal() { used = false; }
-    void apply(Player& player) override {
+    void apply(Player& activePlayer, Player& opponentPlayer) override {
         // Restore the first downloaded link
-        for (auto& lptr : player.getLinks()) {
+        for (auto& lptr : activePlayer.getLinks()) {
             if (lptr->downloaded()) {
                 lptr->setDownloaded(false);
                 break;

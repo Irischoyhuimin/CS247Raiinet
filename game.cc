@@ -16,7 +16,11 @@
 Game::Game(bool textOnly)
     : board{}, player1("Player1"), player2("Player2"),
       activePlayer(&player1), inactivePlayer(&player2),
-      enhancementsOn(false), textOnly(textOnly), xw(nullptr) {}
+      enhancementsOn(false), textOnly(textOnly), xw(nullptr) {
+        std::vector<std::string> defaultOrder = {"LinkBoost", "Firewall", "Download", "Scan", "Polarize"};
+        setAbilityOrder(1, defaultOrder);
+        setAbilityOrder(2, defaultOrder);
+      }
 
 Game::Game(Xwindow* xw)
     : board(*xw), player1("Player1"), player2("Player2"),
@@ -40,23 +44,77 @@ void Game::toggleEnhancements() {
 }
 
 void Game::move(const std::string& dir, const std::string& linkId) {
-    // ... existing move implementation ...
+    // Find the Link* owned by activePlayer with that id (case-sensitive)
+    Link* link = nullptr;
+    for (const auto& lp : activePlayer->getLinks()) {
+        if (lp->getId() == linkId[0]) { // assuming linkId is one char
+            link = lp.get();
+            break;
+        }
+    }
+    if (!link) {
+        std::cout << "No such link: " << linkId << "\n";
+        return;
+    }
+
+    // Get current position of the link on the board
+    int currX = -1, currY = -1;
+    auto grid = board.getGrid();
+    for (int i = 0; i < (int)grid->size(); ++i) {
+        for (int j = 0; j < (int)(*grid)[i].size(); ++j) {
+            if ((*grid)[i][j].getLink() == link) {
+                currX = i;
+                currY = j;
+                break;
+            }
+        }
+        if (currX != -1) break;
+    }
+
+    if (currX == -1) {
+        std::cout << "Link not found on board.\n";
+        return;
+    }
+
+    // Calculate new coordinates based on dir
+    int newX = currX, newY = currY;
+    if (dir == "up") newX--;
+    else if (dir == "down") newX++;
+    else if (dir == "left") newY--;
+    else if (dir == "right") newY++;
+    else {
+        std::cout << "Invalid direction: " << dir << "\n";
+        return;
+    }
+
+    // Check if move is invalid
+    if (board.isInvalidMove(*link, newX, newY, *activePlayer)) {
+        std::cout << "Invalid move.\n";
+        return;
+    }
+
+    // Perform the move (handle battles inside board.move)
+    board.move(activePlayer, inactivePlayer, *link, newX, newY);
+
+    // Optionally switch players here, or after some other phase
+    switchPlayers();
 }
+
 
 void Game::useAbility(const std::string& abilityIdx, const std::vector<std::string>& args) {
     int id = std::stoi(abilityIdx);
-    activePlayer->useAbility(id - 1, args);
+    activePlayer->useAbility(id - 1, args, *inactivePlayer);
 }
 
 void Game::display() const {
+    activePlayer->printStatus(*activePlayer);
     board.printTextDisplay();
-    activePlayer->printStatus();
-    inactivePlayer->printStatus();
+    inactivePlayer->printStatus(*activePlayer);
 }
 
 bool Game::isGameOver() const {
     return activePlayer->getDataDownloaded() >= 4 ||
-           activePlayer->getVirusDownloaded() >= 4;
+           activePlayer->getVirusDownloaded() >= 4 || inactivePlayer->getVirusDownloaded() >= 4 || inactivePlayer->getVirusDownloaded() >= 4;
 }
 
 void Game::switchPlayers() {
@@ -94,3 +152,6 @@ void Game::setAbilityOrder(int playerNum, const std::vector<std::string>& order)
         else std::cerr << "Unknown ability: " << type << "\n";
     }
 }
+
+Player& Game::getCurrentPlayer() { return *activePlayer; }
+const Player& Game::getCurrentPlayer() const { return *activePlayer; }

@@ -7,9 +7,9 @@
 class Firewall : public Ability {
 public:
     Firewall() { used = false; }
-    void apply(Player& player) override {
+    void apply(Player& activePlayer, Player& opponentPlayer) override {
         // Apply a protective firewall: prevent next battle losses on all links
-        for (auto& lptr : player.getLinks()) {
+        for (auto& lptr : activePlayer.getLinks()) {
             // Use the boost flag as a placeholder for firewall protection
             if (!lptr->downloaded()) {
                 lptr->setBoost(true);

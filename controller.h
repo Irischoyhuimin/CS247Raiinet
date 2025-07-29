@@ -20,6 +20,7 @@ public:
     void processCommand(const std::string& cmd);
     void parseMove(const std::vector<std::string>& args);
     void parseAbility(const std::vector<std::string>& args);
+    void printAbilities();
     void parseSequence(const std::vector<std::string>& args);
     void parseSetup(const std::vector<std::string>& args);
     void printHelp();

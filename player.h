@@ -3,7 +3,7 @@
 #include <memory>
 #include <string>
 #include <vector>
-
+#include <set>
 #include "link.h"
 #include "ability.h"
 
@@ -11,6 +11,7 @@ class Player {
     std::string name;
     std::vector<std::unique_ptr<Link>>    links;
     std::vector<std::unique_ptr<Ability>> abilities;
+    std::set<char> revealedOpponentLinks;
     int dataDownloaded    = 0;
     int virusDownloaded   = 0;
     int abilityUsesLeft   = 5;
@@ -27,7 +28,7 @@ public:
     // --- Ability management ---
     void addAbility(std::unique_ptr<Ability> ability);
     std::vector<std::unique_ptr<Ability>>& getAbilities();
-    void useAbility(int abilityIndex, const std::vector<std::string>& args);
+    void useAbility(int abilityIndex, const std::vector<std::string>& args, Player& opponent);
 
     // --- Download tracking ---
     void downloadLink(Link* link);
@@ -37,5 +38,7 @@ public:
     // --- Misc ---
     const std::string& getName() const;
     int getAbilityUsesLeft() const;
-    void printStatus() const;
+    void printStatus(const Player& viewer) const;
+    void revealLink(char linkId);
+    bool isLinkRevealed(char linkId) const;
 };

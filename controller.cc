@@ -60,7 +60,10 @@ void Controller::processCommand(const std::string& cmd) {
         std::cout << "Unknown setup command '" << c << "'. Type 'help'." << std::endl;
     } else if (c == "ability") {
         parseAbility(tokens);
-    } else if (c == "move") {
+    } else if (c == "abilities") {
+        printAbilities();
+    }
+    else if (c == "move") {
         parseMove(tokens);
     } else if (c == "board") {
         game.display();
@@ -143,6 +146,17 @@ void Controller::parseSetup(const std::vector<std::string>& args) {
     }
 }
 
+void Controller::printAbilities() {
+    auto& abilities = game.getCurrentPlayer().getAbilities(); 
+    std::cout << "Abilities:\n";
+    for (int i = 0; i < (int)abilities.size(); ++i) {
+        const auto& ability = abilities[i];
+        std::cout << (i+1) << ": " << ability->getType()
+                  << " (" << (ability->isUsed() ? "used" : "unused") << ")\n";
+    }
+}
+
+
 void Controller::printHelp() {
     std::cout << "Commands:\n"
               << "  setup link1 <file>           Load link1 configuration\n"
@@ -151,6 +165,7 @@ void Controller::printHelp() {
               << "  setup abilities2 <list>      Comma-separated ability list for P2\n"
               << "  setup enhancements           Toggle enhancements\n"
               << "  start                        Begin gameplay\n"
+              << "  abilities                    Show your ability cards and their usage status\n"
               << "  ability <index> [args]       Use ability by index (1-based)\n"
               << "  move <direction> <linkId>    Move link after any ability\n"
               << "  board                        Display board\n"

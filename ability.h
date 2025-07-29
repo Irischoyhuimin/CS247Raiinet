@@ -11,7 +11,7 @@ protected:
 public:
     Ability();
     virtual ~Ability() = default;
-    virtual void apply(Player& player) = 0;
+    virtual void apply(Player& activePlayer, Player& opponentPlayer) = 0;
     virtual bool isValid(Player& player) const = 0;
     bool isUsed() const;
     void markUsed();
