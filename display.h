@@ -12,7 +12,6 @@ class TextDisplay : public Observer {
 
 public:
     TextDisplay(Board* b);
-    void setPlayers(const Player* active, const Player* opponent);
     void update() override;
     void print();
 };

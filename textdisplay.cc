@@ -9,17 +9,8 @@ using namespace std;
 
 TextDisplay::TextDisplay(Board* board) : board(board) {}
 
-void TextDisplay::setPlayers(const Player* active, const Player* opponent) {
-    activePlayer = active;
-    opponentPlayer = opponent;
-}
-
 void TextDisplay::update() {
-    if (activePlayer && opponentPlayer) {
-        print();
-    } else {
-      
-    }
+    print();
 }
 
 void TextDisplay::print() {
