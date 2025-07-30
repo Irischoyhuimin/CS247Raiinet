@@ -2,9 +2,8 @@
 #include <iostream>
 #include <sstream>
 #include <fstream>
-using namespace std;
 
-
+// Utility: split comma-separated list
 static vector<string> splitList(const string& s) {
     vector<string> out;
     string token;
@@ -28,8 +27,8 @@ void Controller::run() {
     string line;
     while (true) {
         if(gameOver) break;
-        std::cout << (setupMode ? "(setup)> " : "> ");
-        if (!std::getline(std::cin, line)) break;
+        cout << (setupMode ? "(setup)> " : "> ");
+        if (!getline(cin, line)) break;
         if (line.empty()) continue;
         if (line == "quit") break;
         processCommand(line);
@@ -82,8 +81,8 @@ void Controller::parseMove(const vector<string>& args) {
     game.move(args[1], args[2]);
     if (game.isGameOver()) {
         int w = game.getWinner();
-        if (w == 1) std::cout << "Game over! Player 1 wins!\n";
-        else if (w == 2) std::cout << "Game over! Player 2 wins!\n";
+        if (w == 1) cout << "Game over! Player 1 wins!\n";
+        else if (w == 2) cout << "Game over! Player 2 wins!\n";
         gameOver = true; // so run() breaks next prompt
         return;
     }
@@ -100,15 +99,19 @@ void Controller::parseAbility(const vector<string>& args) {
         return;
     }
     vector<string> abilityArgs(args.begin() + 2, args.end());
+    int before = game.getCurrentPlayer().getAbilityUsesLeft();
     game.useAbility(args[1], abilityArgs);
+    int after = game.getCurrentPlayer().getAbilityUsesLeft();
     if (game.isGameOver()) {
         int w = game.getWinner();
-        if (w == 1) std::cout << "Game over! Player 1 wins!\n";
-        else if (w == 2) std::cout << "Game over! Player 2 wins!\n";
+        if (w == 1) cout << "Game over! Player 1 wins!\n";
+        else if (w == 2) cout << "Game over! Player 2 wins!\n";
         gameOver = true;
         return;
     }
-    abilityUsedThisTurn = true;
+    if(after < before){
+        abilityUsedThisTurn = true;
+    }
     game.display();
 }
 
@@ -133,11 +136,11 @@ void Controller::parseSequence(const vector<string>& args) {
 void Controller::startGameIfReady() {
     if (!link1Loaded) {
         game.randomizeLinksForPlayer(1);
-        std::cout << "Player 1 links randomized.\n";
+        cout << "Player 1 links randomized.\n";
     }
     if (!link2Loaded) {
         game.randomizeLinksForPlayer(2);
-        std::cout << "Player 2 links randomized.\n";
+        cout << "Player 2 links randomized.\n";
     }
     game.init();
     game.start();
@@ -145,7 +148,7 @@ void Controller::startGameIfReady() {
     abilityUsedThisTurn = false;
 }
 
-void Controller::parseSetup(const std::vector<std::string>& args) {
+void Controller::parseSetup(const vector<string>& args) {
     if (args.size() < 2) {
         cout << "Usage: setup <option> [params]" << endl;
         return;
@@ -154,11 +157,11 @@ void Controller::parseSetup(const std::vector<std::string>& args) {
     if (opt == "link1" && args.size() == 3) {
         game.loadLinkConfig(1, args[2]);
         link1Loaded = true;  // Mark link1 loaded
-        std::cout << "Link1 configuration loaded." << std::endl;
+        cout << "Link1 configuration loaded." << endl;
     } else if (opt == "link2" && args.size() == 3) {
         game.loadLinkConfig(2, args[2]);
         link2Loaded = true;  // Mark link2 loaded
-        std::cout << "Link2 configuration loaded." << std::endl;
+        cout << "Link2 configuration loaded." << endl;
     } else if (opt == "abilities1" && args.size() == 3) {
         auto order = splitList(args[2]);
         game.setAbilityOrder(1, order);

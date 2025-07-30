@@ -7,21 +7,22 @@
 class Swap : public Ability {
 public:
     Swap() { used = false; }
-    void apply(Player& active, Player& opp, const std::vector<std::string>& args, Board& board) {
+    void apply(Player& active, Player& opp, const vector<string>& args, Board& board) {
         if (args.size() < 2) {
-            std::cout << "Usage: ability <index> <link1> <link2>\n";
+            cout << "Usage: ability <index> <link1> <link2>\n";
             return;
         }
         Link* l1 = active.getLinkById(args[0][0]);
         Link* l2 = active.getLinkById(args[1][0]);
         if (!l1 || !l2 || l1->downloaded() || l2->downloaded()) {
-            std::cout << "Invalid links to swap.\n";
+            cout << "Invalid links to swap.\n";
             return;
         }
         if (board.swapLinks(l1, l2)) {
-            std::cout << "Swapped " << l1->getId() << " and " << l2->getId() << ".\n";
+            cout << "Swapped " << l1->getId() << " and " << l2->getId() << ".\n";
+            markUsed();
         } else {
-            std::cout << "Swap failed: could not find links on board.\n";
+            cout << "Swap failed: could not find links on board.\n";
         }
     }
     bool isValid(Player& player) const override {
@@ -33,7 +34,7 @@ public:
         }
         return false;
     }
-    std::string getType() const override { return "Swap"; }
+    string getType() const override { return "Swap"; }
 };
 
 #endif 

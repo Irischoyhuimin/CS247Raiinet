@@ -14,6 +14,10 @@ class Player {
     vector<unique_ptr<Link>>    links;
     vector<unique_ptr<Ability>> abilities;
     set<char> revealedOpponentLinks;
+    string name;
+    vector<unique_ptr<Link>>    links;
+    vector<unique_ptr<Ability>> abilities;
+    set<char> revealedOpponentLinks;
     int dataDownloaded    = 0;
     int virusDownloaded   = 0;
     int abilityUsesLeft   = 5;

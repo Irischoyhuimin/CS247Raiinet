@@ -20,12 +20,12 @@ public:
     Controller(bool textOnly);
     Controller(Xwindow* xw);
     void run();
-    void processCommand(const std::string& cmd);
-    void parseMove(const std::vector<std::string>& args);
-    void parseAbility(const std::vector<std::string>& args);
+    void processCommand(const string& cmd);
+    void parseMove(const vector<string>& args);
+    void parseAbility(const vector<string>& args);
     void printAbilities();
-    void parseSequence(const std::vector<std::string>& args);
-    void parseSetup(const std::vector<std::string>& args);
+    void parseSequence(const vector<string>& args);
+    void parseSetup(const vector<string>& args);
     void printHelp();
     void startGameIfReady();
 };

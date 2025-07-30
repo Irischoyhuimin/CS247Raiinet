@@ -6,7 +6,7 @@
 #include <string>
 #include <vector>
 #include <stdexcept>
-
+using namespace std;
 class Xwindow {
     Display*     dpy;
     Window       win;
@@ -25,7 +25,7 @@ class Xwindow {
 
     void fillRectangle(int x, int y, int w, int h, int colour);
 
-    void drawString(int x, int y, const std::string& msg, int colour = Black);
+    void drawString(int x, int y, const string& msg, int colour = Black);
 
     void drawLine(int x1, int y1, int x2, int y2, int colour = Black);
 

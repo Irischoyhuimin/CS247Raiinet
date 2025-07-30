@@ -11,7 +11,7 @@ class Cell {
     Link* link;
     Player* firewallOwner;
     bool serverPort;
-    std::vector<Observer*> observers;
+    vector<Observer*> observers;
 
 public:
     Cell(int x, int y);

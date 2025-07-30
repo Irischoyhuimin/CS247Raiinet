@@ -27,11 +27,15 @@ Game::Game(bool textOnly)
         setAbilityOrder(2, defaultOrder);
       }
 
-Game::Game(Xwindow* xw)
-    : board(*xw), player1("Player1"), player2("Player2"),
-      activePlayer(&player1), inactivePlayer(&player2),
-      enhancementsOn(false), textOnly(false), xw(xw) {}
+Game::Game(Xwindow* xw) : board(*xw), player1("Player1"), player2("Player2"), activePlayer(&player1), inactivePlayer(&player2), enhancementsOn(false), textOnly(false), xw(xw) {
+    vector<string> defaultOrder = {"LinkBoost", "Firewall", "Download", "Scan", "Polarize"};
+    setAbilityOrder(1, defaultOrder);
+    setAbilityOrder(2, defaultOrder);
+}
 
+void Game::init() {
+    // No-op: initial state already configured via setup commands
+}
 
 void Game::start() {
     board.setup();
@@ -58,6 +62,7 @@ void Game::move(const string& dir, const string& linkId) {
         return;
     }
 
+    // Get current position of the link on the board
     int currX = -1, currY = -1;
     auto grid = board.getGrid();
     for (int i = 0; i < (int)grid->size(); ++i) {
@@ -101,6 +106,7 @@ void Game::move(const string& dir, const string& linkId) {
         return;
     }
 
+    // Perform the move (handle battles inside board.move)
     board.move(activePlayer, inactivePlayer, *link, newX, newY);
     if(isGameOver()) return;
     // Optionally switch players here, or after some other phase
@@ -172,21 +178,21 @@ void Game::setAbilityOrder(int playerNum, const vector<string>& order) {
         if (abilities.size() >= 5) break;
         
         if (rawType == "LinkBoost") {
-            abilities.push_back(std::unique_ptr<Ability>(new LinkBoost()));
+            abilities.push_back(unique_ptr<Ability>(new LinkBoost()));
         } else if (rawType == "Firewall") {
-            abilities.push_back(std::unique_ptr<Ability>(new Firewall()));
+            abilities.push_back(unique_ptr<Ability>(new Firewall()));
         } else if (rawType == "Download") {
-            abilities.push_back(std::unique_ptr<Ability>(new Download()));
+            abilities.push_back(unique_ptr<Ability>(new Download()));
         } else if (rawType == "Scan") {
-            abilities.push_back(std::unique_ptr<Ability>(new Scan()));
+            abilities.push_back(unique_ptr<Ability>(new Scan()));
         } else if (rawType == "Polarize") {
-            abilities.push_back(std::unique_ptr<Ability>(new Polarize()));
+            abilities.push_back(unique_ptr<Ability>(new Polarize()));
         } else if (rawType == "Swap") {
-            abilities.push_back(std::unique_ptr<Ability>(new Swap()));
+            abilities.push_back(unique_ptr<Ability>(new Swap()));
         } else if (rawType == "Heal") {
-            abilities.push_back(std::unique_ptr<Ability>(new Heal()));
+            abilities.push_back(unique_ptr<Ability>(new Heal()));
         } else if (rawType == "Mask") {
-            abilities.push_back(std::unique_ptr<Ability>(new MaskAbility()));
+            abilities.push_back(unique_ptr<Ability>(new MaskAbility()));
         } else {
             cerr << "Unknown ability type: " << rawType << endl;
         }
