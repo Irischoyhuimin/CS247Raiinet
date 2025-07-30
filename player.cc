@@ -55,10 +55,12 @@ void Player::useAbility(int abilityIndex, const vector<string>& args, Player& op
         cout << "Cannot use that ability now\n";
         return;
     }
-
+    bool usedBefore = ab->isUsed();
     ab->apply(*this, opponent, args, board);
-    ab->markUsed();
-    --abilityUsesLeft;
+    bool usedAfter = ab->isUsed();
+    if(!usedBefore && usedAfter){
+        --abilityUsesLeft;
+    }
 }
 
 
@@ -117,7 +119,7 @@ void Player::concealOpponentLink(char id) {
 void Player::replaceLink(Link* oldL, Link* newL) {
     for (auto& lptr : links) {
         if (lptr.get() == oldL) {
-            lptr.reset(newL); // replace the unique_ptr content
+            lptr.reset(newL); 
             return;
         }
     }

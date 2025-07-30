@@ -13,7 +13,6 @@ public:
 
         if (!args.empty()) {
             char id = args[0][0];
-            // getLinkById usually skips downloaded links, so we search manually
             for (auto& l : active.getLinks()) {
                 if (l->getId() == id && l->downloaded()) { toHeal = l.get(); break; }
             }
@@ -38,6 +37,7 @@ public:
         }
 
         board.placeLink(toHeal, r, c);
+        markUsed();
         cout << "Healed link " << toHeal->getId() << " at (" << c << "," << r << ").\n";
     }
     bool isValid(Player& player) const override {

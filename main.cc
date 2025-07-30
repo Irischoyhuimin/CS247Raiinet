@@ -32,7 +32,6 @@ int main(int argc, char* argv[]) {
     Controller* controller = nullptr;
 
     if (graphics) {
-        // Create an actual X window; pick any reasonable size
         xw = new Xwindow(480, 400+180);
         controller = new Controller(xw);     // <-- uses Game(Xwindow*)
     } else {

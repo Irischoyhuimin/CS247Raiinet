@@ -29,8 +29,9 @@ public:
             return;
         }
 
-        // Apply the boost; your move code must honor hasBoost()
+        // Apply the boost
         target->setBoost(true);
+        markUsed();
         cout << "LinkBoost applied to link " << target->getId() << ".\n";
     }
     bool isValid(Player& player) const override {

@@ -27,7 +27,7 @@ public:
 
         // Mark as downloaded (updates D/V counters)
         opponent.downloadLink(target);
-
+        markUsed();
         cout << "Downloaded opponent's link " << targetId << ".\n";
     }
     bool isValid(Player& player) const override {

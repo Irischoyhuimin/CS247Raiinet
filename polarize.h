@@ -39,7 +39,7 @@ public:
 
         // Update the Board cell to point to new link
         board.replaceLink(targetLink, newLink);
-
+        markUsed();
         cout << "Link " << id << " polarized.\n";
     }
     bool isValid(Player& player) const override {

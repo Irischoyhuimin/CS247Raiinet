@@ -18,6 +18,7 @@ public:
                       << ", Boosted=" << (lptr->hasBoost() ? "Yes" : "No")
                       << "\n";
         }
+        markUsed();
     }
     bool isValid(Player& player) const override {
         // Can use if not yet used

@@ -99,7 +99,9 @@ void Controller::parseAbility(const vector<string>& args) {
         return;
     }
     vector<string> abilityArgs(args.begin() + 2, args.end());
+    int before = game.getCurrentPlayer().getAbilityUsesLeft();
     game.useAbility(args[1], abilityArgs);
+    int after = game.getCurrentPlayer().getAbilityUsesLeft();
     if (game.isGameOver()) {
         int w = game.getWinner();
         if (w == 1) cout << "Game over! Player 1 wins!\n";
@@ -107,7 +109,9 @@ void Controller::parseAbility(const vector<string>& args) {
         gameOver = true;
         return;
     }
-    abilityUsedThisTurn = true;
+    if(after < before){
+        abilityUsedThisTurn = true;
+    }
     game.display();
 }
 

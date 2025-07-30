@@ -20,6 +20,7 @@ public:
         }
         if (board.swapLinks(l1, l2)) {
             cout << "Swapped " << l1->getId() << " and " << l2->getId() << ".\n";
+            markUsed();
         } else {
             cout << "Swap failed: could not find links on board.\n";
         }

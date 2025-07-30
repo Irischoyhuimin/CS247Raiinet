@@ -60,7 +60,7 @@ void Board::move(Player* activePlayer, Player* inactivePlayer, Link& link, int x
     }
     if (!oldCell) return;
 
-    // OFF-BOARD downloads (must happen BEFORE touching grid[x][y]) 
+    // OFF-BOARD downloads 
     // Moving off the far edge towards opponent = download your own link
     if (x < 0 || x >= size) {
         // Player1 escapes off bottom edge (x == size)
@@ -104,7 +104,7 @@ void Board::move(Player* activePlayer, Player* inactivePlayer, Link& link, int x
                     // Virus hits firewall -> attacker is downloaded by its owner
                     activePlayer->downloadLink(&link);
                     oldCell->removeLink();
-                    // Firewall persists; do NOT remove it
+                    // Firewall persists
                     return;
                 }
                 // Data: continue to destination
@@ -123,14 +123,14 @@ void Board::move(Player* activePlayer, Player* inactivePlayer, Link& link, int x
             oldCell->removeLink();
             return;
         }
-        // If attacker is Data, proceed. If there is a defender, we will battle next.
+        // If attacker is Data, proceed. If there is a defender, battle
         // Firewall remains under the piece if it ends up standing there.
     }
 
     // Normal move / battle 
     Link* target = grid[x][y].getLink();
     if (target && target->getOwner() != activePlayer) {
-        // Battle (firewall already applied if present)
+        // Battle 
         Link* winner = battle(*activePlayer, *inactivePlayer, link, *target);
 
         // Attacker vacated old cell
@@ -147,7 +147,6 @@ void Board::move(Player* activePlayer, Player* inactivePlayer, Link& link, int x
         oldCell->removeLink();
     }
 }
-
 
 Link* Board::battle(Player& p1, Player& p2, Link& l1, Link& l2) {
     p1.revealLink(l2.getId());
@@ -244,7 +243,6 @@ void Board::placeFirewall(int x, int y, Player* owner) {
         return;
     }
     grid[x][y].setFirewall(owner);
-    // Text/graphics displays will react via notifyObservers() from Cell::setFirewall
 }
 
 bool Board::opponentHasFireWallAt(int x, int y, Player* opponent) const {

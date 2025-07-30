@@ -21,7 +21,7 @@ public:
             return;
         }
         opponent.concealOpponentLink(id);
-
+        markUsed();
         cout << "Masked link " << id << " (opponent now sees '?').\n";
     }
     bool isValid(Player& player) const override {

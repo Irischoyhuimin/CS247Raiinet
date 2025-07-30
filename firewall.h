@@ -7,8 +7,7 @@
 class Firewall : public Ability {
 public:
     Firewall() { used = false; }
-    void apply(Player& active, Player& /*opp*/,
-               const vector<string>& args, Board& board) override {
+    void apply(Player& active, Player& /*opp*/, const vector<string>& args, Board& board) override {
         if (used) {
             cout << "Firewall already used.\n";
             return;
@@ -35,6 +34,7 @@ public:
         }
 
         board.placeFirewall(row, col, &active);
+        markUsed();
         cout << "Firewall placed at (" << col << "," << row << ").\n";
     }
     bool isValid(Player& player) const override { return !used; }
