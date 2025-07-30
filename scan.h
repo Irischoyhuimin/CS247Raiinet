@@ -8,7 +8,7 @@
 class Scan : public Ability {
 public:
     Scan() { used = false; }
-    void apply(Player& activePlayer, Player& opponentPlayer) override {
+    void apply(Player& activePlayer, Player& opponentPlayer, const std::vector<std::string>& args, Board& board) override {
         // Reveal all link strengths and statuses
         std::cout << "-- Scan results for " << opponentPlayer.getName() << " --\n";
         for (auto& lptr : opponentPlayer.getLinks()) {
@@ -18,7 +18,6 @@ public:
                       << ", Boosted=" << (lptr->hasBoost() ? "Yes" : "No")
                       << "\n";
         }
-        markUsed();
     }
     bool isValid(Player& player) const override {
         // Can use if not yet used

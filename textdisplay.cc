@@ -14,29 +14,54 @@ void TextDisplay::update() {
 }
 
 void TextDisplay::print() {
-    int size = board->getSize();  
-    auto grid = board->getGrid(); 
-    for(int i = 0; i < size-1; i++) {
-        cout << "==";
+    int size = board->getSize();
+    auto grid = board->getGrid();
+
+    // Column header
+    cout << "    ";
+    for (int col = 0; col < size; ++col) {
+        std::cout << col << " ";
     }
-    cout << "=";
-    std::cout << "\n";
+    cout << "\n";
+
+    // Top border
+    std::cout << "  ";
+    for (int col = 0; col < size; ++col) {
+        std::cout << "--";
+    }
+    std::cout << "-\n";
+
     for (int i = 0; i < size; ++i) {
+        // Row label and left border
+        std::cout << i << " | ";
+
         for (int j = 0; j < size; ++j) {
-            Link* link = (*grid)[i][j].getLink();
             char toPrint = '.';
+
+            Link* link = (*grid)[i][j].getLink();
             if (link) {
+                // If a link is on the square, show the link (not the firewall)
                 toPrint = link->getId();
             } else if ((*grid)[i][j].isServerPort()) {
                 toPrint = 'S';
+            } else if ((*grid)[i][j].hasFirewall()) {
+                // Empty square with a firewall: show owner-specific symbol
+                Player* owner = (*grid)[i][j].getFirewallOwner();
+                if (owner) {
+                    const string& name = owner->getName();
+                    // Spec convention: 'm' for P1 firewall, 'w' for P2 firewall
+                    toPrint = (name == "Player1") ? 'm' : 'w';
+                } else {
+                    toPrint = 'm';
+                }
             }
-            std::cout << toPrint << " ";
+
+            cout << toPrint << ' ';
         }
-        std::cout << "\n";
+        cout << '\n';
     }
-    for(int i = 0; i < size-1; i++) {
-        cout << "==";
-    }
-    cout << "=";
-    std::cout << "\n\n";
+
+    cout << "  ";
+    for (int j = 0; j < size; ++j) cout << "--";
+    cout << "-\n\n";
 }

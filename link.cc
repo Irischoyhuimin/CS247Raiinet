@@ -35,7 +35,7 @@ void Link::setBoost(bool boost) {
 
 Virus::Virus(char id, Player* owner, int strength)
     : Link{id, owner, strength} {}
-
+  
 string Virus::getType() const {
     return "V";
 }

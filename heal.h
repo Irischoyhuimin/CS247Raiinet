@@ -7,15 +7,38 @@
 class Heal : public Ability {
 public:
     Heal() { used = false; }
-    void apply(Player& activePlayer, Player& opponentPlayer) override {
-        // Restore the first downloaded link
-        for (auto& lptr : activePlayer.getLinks()) {
-            if (lptr->downloaded()) {
-                lptr->setDownloaded(false);
-                break;
+    void apply(Player& active, Player& opponent, const std::vector<std::string>& args, Board& board) override {
+        // Pick target link: by id if provided, else first downloaded link
+        Link* toHeal = nullptr;
+
+        if (!args.empty()) {
+            char id = args[0][0];
+            // getLinkById usually skips downloaded links, so we search manually
+            for (auto& l : active.getLinks()) {
+                if (l->getId() == id && l->downloaded()) { toHeal = l.get(); break; }
+            }
+            if (!toHeal) {
+                std::cout << "No downloaded link with id " << id << " to heal.\n";
+                return;
+            }
+        } else {
+            for (auto& l : active.getLinks()) {
+                if (l->downloaded()) { toHeal = l.get(); break; }
+            }
+            if (!toHeal) {
+                std::cout << "No downloaded links to heal.\n";
+                return;
             }
         }
-        markUsed();
+
+        int r, c;
+        if (!board.findRespawnSquare(&active, r, c, &opponent)) {
+            std::cout << "No safe square available to respawn.\n";
+            return;
+        }
+
+        board.placeLink(toHeal, r, c);
+        std::cout << "Healed link " << toHeal->getId() << " at (" << c << "," << r << ").\n";
     }
     bool isValid(Player& player) const override {
         // Can use if not yet used and at least one link is downloaded

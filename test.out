@@ -1,0 +1,1327 @@
+Game started.
+Welcome to RAIInet! Type 'help' for commands.
+> Link1 configuration loaded.
+> Link2 configuration loaded.
+> Player2:
+Downloaded: 0D, 0V
+Abilities: 5
+A: V1 B: V2 C: D1 D: V3 E: D1 F: D2 G: V2 H: D1 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | a b c S S . g h 
+1 | . . . d e f . . 
+2 | . . . . . . . . 
+3 | . . . . . . . . 
+4 | . . . . . . . . 
+5 | . . . . . . . . 
+6 | . . . D E . . . 
+7 | A B C S S F G H 
+  -----------------
+
+Player1:
+Downloaded: 0D, 0V
+Abilities: 5
+a: ? b: ? c: ? d: ? e: ? f: ? g: ? h: ? 
+> Player1:
+Downloaded: 0D, 0V
+Abilities: 5
+a: D1 b: D1 c: V1 d: D2 e: V2 f: D3 g: D1 h: V2 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | a b c S S . g h 
+1 | . . . d e f . . 
+2 | . . . . . . . . 
+3 | . . . . . . . . 
+4 | . . . . . . . . 
+5 | . . . . . . . . 
+6 | . . . D E F . . 
+7 | A B C S S . G H 
+  -----------------
+
+Player2:
+Downloaded: 0D, 0V
+Abilities: 5
+A: ? B: ? C: ? D: ? E: ? F: ? G: ? H: ? 
+> Player2:
+Downloaded: 0D, 0V
+Abilities: 5
+A: V1 B: V2 C: D1 D: V3 E: D1 F: D2 G: V2 H: D1 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | a b c S S . g h 
+1 | . . . d e . . . 
+2 | . . . . . f . . 
+3 | . . . . . . . . 
+4 | . . . . . . . . 
+5 | . . . . . . . . 
+6 | . . . D E F . . 
+7 | A B C S S . G H 
+  -----------------
+
+Player1:
+Downloaded: 0D, 0V
+Abilities: 5
+a: ? b: ? c: ? d: ? e: ? f: ? g: ? h: ? 
+> Player1:
+Downloaded: 0D, 0V
+Abilities: 5
+a: D1 b: D1 c: V1 d: D2 e: V2 f: D3 g: D1 h: V2 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | a b c S S . g h 
+1 | . . . d e . . . 
+2 | . . . . . f . . 
+3 | . . . . . . . . 
+4 | . . . . . . . . 
+5 | . . . . . F . . 
+6 | . . . D E . . . 
+7 | A B C S S . G H 
+  -----------------
+
+Player2:
+Downloaded: 0D, 0V
+Abilities: 5
+A: ? B: ? C: ? D: ? E: ? F: ? G: ? H: ? 
+> Player2:
+Downloaded: 0D, 0V
+Abilities: 5
+A: V1 B: V2 C: D1 D: V3 E: D1 F: D2 G: V2 H: D1 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | a b c S S . g h 
+1 | . . . d e . . . 
+2 | . . . . . . . . 
+3 | . . . . . f . . 
+4 | . . . . . . . . 
+5 | . . . . . F . . 
+6 | . . . D E . . . 
+7 | A B C S S . G H 
+  -----------------
+
+Player1:
+Downloaded: 0D, 0V
+Abilities: 5
+a: ? b: ? c: ? d: ? e: ? f: ? g: ? h: ? 
+> Player1:
+Downloaded: 0D, 0V
+Abilities: 5
+a: D1 b: D1 c: V1 d: D2 e: V2 f: D3 g: D1 h: V2 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | a b c S S . g h 
+1 | . . . d e . . . 
+2 | . . . . . . . . 
+3 | . . . . . f . . 
+4 | . . . . . F . . 
+5 | . . . . . . . . 
+6 | . . . D E . . . 
+7 | A B C S S . G H 
+  -----------------
+
+Player2:
+Downloaded: 0D, 0V
+Abilities: 5
+A: ? B: ? C: ? D: ? E: ? F: ? G: ? H: ? 
+> Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: V1 B: V2 C: D1 D: V3 E: D1 F: D2 G: V2 H: D1 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | a b c S S . g h 
+1 | . . . d e . . . 
+2 | . . . . . . . . 
+3 | . . . . . . . . 
+4 | . . . . . f . . 
+5 | . . . . . . . . 
+6 | . . . D E . . . 
+7 | A B C S S . G H 
+  -----------------
+
+Player1:
+Downloaded: 0D, 0V
+Abilities: 5
+a: ? b: ? c: ? d: ? e: ? f: D3 g: ? h: ? 
+> Player1:
+Downloaded: 0D, 0V
+Abilities: 5
+a: D1 b: D1 c: V1 d: D2 e: V2 f: D3 g: D1 h: V2 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | a b c S S . g h 
+1 | . . . d e . . . 
+2 | . . . . . . . . 
+3 | . . . . . . . . 
+4 | . . . . . f . . 
+5 | . . . . . . . . 
+6 | . . . D E . G . 
+7 | A B C S S . . H 
+  -----------------
+
+Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: ? B: ? C: ? D: ? E: ? F: D2 G: ? H: ? 
+> Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: V1 B: V2 C: D1 D: V3 E: D1 F: D2 G: V2 H: D1 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | a b c S S . g h 
+1 | . . . d e . . . 
+2 | . . . . . . . . 
+3 | . . . . . . . . 
+4 | . . . . . . . . 
+5 | . . . . . f . . 
+6 | . . . D E . G . 
+7 | A B C S S . . H 
+  -----------------
+
+Player1:
+Downloaded: 0D, 0V
+Abilities: 5
+a: ? b: ? c: ? d: ? e: ? f: D3 g: ? h: ? 
+> Player1:
+Downloaded: 0D, 0V
+Abilities: 5
+a: D1 b: D1 c: V1 d: D2 e: V2 f: D3 g: D1 h: V2 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | a b c S S . g h 
+1 | . . . d e . . . 
+2 | . . . . . . . . 
+3 | . . . . . . . . 
+4 | . . . . . . . . 
+5 | . . . . . f G . 
+6 | . . . D E . . . 
+7 | A B C S S . . H 
+  -----------------
+
+Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: ? B: ? C: ? D: ? E: ? F: D2 G: ? H: ? 
+> Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: V1 B: V2 C: D1 D: V3 E: D1 F: D2 G: V2 H: D1 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | a b c S S . g h 
+1 | . . . d e . . . 
+2 | . . . . . . . . 
+3 | . . . . . . . . 
+4 | . . . . . . . . 
+5 | . . . . . . G . 
+6 | . . . D E f . . 
+7 | A B C S S . . H 
+  -----------------
+
+Player1:
+Downloaded: 0D, 0V
+Abilities: 5
+a: ? b: ? c: ? d: ? e: ? f: D3 g: ? h: ? 
+> Player1:
+Downloaded: 0D, 0V
+Abilities: 5
+a: D1 b: D1 c: V1 d: D2 e: V2 f: D3 g: D1 h: V2 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | a b c S S . g h 
+1 | . . . d e . . . 
+2 | . . . . . . . . 
+3 | . . . . . . . . 
+4 | . . . . . . G . 
+5 | . . . . . . . . 
+6 | . . . D E f . . 
+7 | A B C S S . . H 
+  -----------------
+
+Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: ? B: ? C: ? D: ? E: ? F: D2 G: ? H: ? 
+> Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: V1 B: V2 C: D1 D: V3 E: D1 F: D2 G: V2 H: D1 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | a b c S S . g h 
+1 | . . . d e . . . 
+2 | . . . . . . . . 
+3 | . . . . . . . . 
+4 | . . . . . . G . 
+5 | . . . . . . . . 
+6 | . . . D E . . . 
+7 | A B C S S f . H 
+  -----------------
+
+Player1:
+Downloaded: 0D, 0V
+Abilities: 5
+a: ? b: ? c: ? d: ? e: ? f: D3 g: ? h: ? 
+> Player1:
+Downloaded: 0D, 0V
+Abilities: 5
+a: D1 b: D1 c: V1 d: D2 e: V2 f: D3 g: D1 h: V2 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | a b c S S . g h 
+1 | . . . d e . . . 
+2 | . . . . . . . . 
+3 | . . . . . . G . 
+4 | . . . . . . . . 
+5 | . . . . . . . . 
+6 | . . . D E . . . 
+7 | A B C S S f . H 
+  -----------------
+
+Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: ? B: ? C: ? D: ? E: ? F: D2 G: ? H: ? 
+> Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: V1 B: V2 C: D1 D: V3 E: D1 F: D2 G: V2 H: D1 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | a b c S S . g h 
+1 | . . . d e . . . 
+2 | . . . . . . . . 
+3 | . . . . . . G . 
+4 | . . . . . . . . 
+5 | . . . . . . . . 
+6 | . . . D E . . . 
+7 | A B C S S . . H 
+  -----------------
+
+Player1:
+Downloaded: 1D, 0V
+Abilities: 5
+a: ? b: ? c: ? d: ? e: ? f: D3 g: ? h: ? 
+> Player1:
+Downloaded: 1D, 0V
+Abilities: 5
+a: D1 b: D1 c: V1 d: D2 e: V2 f: D3 g: D1 h: V2 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | a b c S S . g h 
+1 | . . . d e . . . 
+2 | . . . . . . . . 
+3 | . . . . . . G . 
+4 | . . . . . . . . 
+5 | . . . . . . . . 
+6 | A . . D E . . . 
+7 | . B C S S . . H 
+  -----------------
+
+Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: ? B: ? C: ? D: ? E: ? F: D2 G: ? H: ? 
+> Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: V1 B: V2 C: D1 D: V3 E: D1 F: D2 G: V2 H: D1 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | . b c S S . g h 
+1 | a . . d e . . . 
+2 | . . . . . . . . 
+3 | . . . . . . G . 
+4 | . . . . . . . . 
+5 | . . . . . . . . 
+6 | A . . D E . . . 
+7 | . B C S S . . H 
+  -----------------
+
+Player1:
+Downloaded: 1D, 0V
+Abilities: 5
+a: ? b: ? c: ? d: ? e: ? f: D3 g: ? h: ? 
+> Player1:
+Downloaded: 1D, 0V
+Abilities: 5
+a: D1 b: D1 c: V1 d: D2 e: V2 f: D3 g: D1 h: V2 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | . b c S S . g h 
+1 | a . . d e . . . 
+2 | . . . . . . . . 
+3 | . . . . . . G . 
+4 | . . . . . . . . 
+5 | A . . . . . . . 
+6 | . . . D E . . . 
+7 | . B C S S . . H 
+  -----------------
+
+Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: ? B: ? C: ? D: ? E: ? F: D2 G: ? H: ? 
+> Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: V1 B: V2 C: D1 D: V3 E: D1 F: D2 G: V2 H: D1 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | . b c S S . g h 
+1 | . . . d e . . . 
+2 | a . . . . . . . 
+3 | . . . . . . G . 
+4 | . . . . . . . . 
+5 | A . . . . . . . 
+6 | . . . D E . . . 
+7 | . B C S S . . H 
+  -----------------
+
+Player1:
+Downloaded: 1D, 0V
+Abilities: 5
+a: ? b: ? c: ? d: ? e: ? f: D3 g: ? h: ? 
+> Player1:
+Downloaded: 1D, 0V
+Abilities: 5
+a: D1 b: D1 c: V1 d: D2 e: V2 f: D3 g: D1 h: V2 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | . b c S S . g h 
+1 | . . . d e . . . 
+2 | a . . . . . . . 
+3 | . . . . . . G . 
+4 | A . . . . . . . 
+5 | . . . . . . . . 
+6 | . . . D E . . . 
+7 | . B C S S . . H 
+  -----------------
+
+Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: ? B: ? C: ? D: ? E: ? F: D2 G: ? H: ? 
+> Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: V1 B: V2 C: D1 D: V3 E: D1 F: D2 G: V2 H: D1 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | . b c S S . g h 
+1 | . . . d e . . . 
+2 | . . . . . . . . 
+3 | a . . . . . G . 
+4 | A . . . . . . . 
+5 | . . . . . . . . 
+6 | . . . D E . . . 
+7 | . B C S S . . H 
+  -----------------
+
+Player1:
+Downloaded: 1D, 0V
+Abilities: 5
+a: ? b: ? c: ? d: ? e: ? f: D3 g: ? h: ? 
+> Player1:
+Downloaded: 1D, 0V
+Abilities: 5
+a: D1 b: D1 c: V1 d: D2 e: V2 f: D3 g: D1 h: V2 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | . b c S S . g h 
+1 | . . . d e . . . 
+2 | . . . . . . . . 
+3 | a . . . . . G . 
+4 | . A . . . . . . 
+5 | . . . . . . . . 
+6 | . . . D E . . . 
+7 | . B C S S . . H 
+  -----------------
+
+Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: ? B: ? C: ? D: ? E: ? F: D2 G: ? H: ? 
+> Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: V1 B: V2 C: D1 D: V3 E: D1 F: D2 G: V2 H: D1 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | . b c S S . g h 
+1 | . . . d e . . . 
+2 | . . . . . . . . 
+3 | . . . . . . G . 
+4 | a A . . . . . . 
+5 | . . . . . . . . 
+6 | . . . D E . . . 
+7 | . B C S S . . H 
+  -----------------
+
+Player1:
+Downloaded: 1D, 0V
+Abilities: 5
+a: ? b: ? c: ? d: ? e: ? f: D3 g: ? h: ? 
+> Player1:
+Downloaded: 1D, 0V
+Abilities: 5
+a: D1 b: D1 c: V1 d: D2 e: V2 f: D3 g: D1 h: V2 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | . b c S S . g h 
+1 | . . . d e . . . 
+2 | . . . . . . . . 
+3 | . . . . . . G . 
+4 | a A . . . . . . 
+5 | . . . . . . . . 
+6 | . . . D E . . H 
+7 | . B C S S . . . 
+  -----------------
+
+Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: ? B: ? C: ? D: ? E: ? F: D2 G: ? H: ? 
+> Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: V1 B: V2 C: D1 D: V3 E: D1 F: D2 G: V2 H: D1 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | . b c S S . g h 
+1 | . . . d e . . . 
+2 | . . . . . . . . 
+3 | . . . . . . G . 
+4 | . A . . . . . . 
+5 | a . . . . . . . 
+6 | . . . D E . . H 
+7 | . B C S S . . . 
+  -----------------
+
+Player1:
+Downloaded: 1D, 0V
+Abilities: 5
+a: ? b: ? c: ? d: ? e: ? f: D3 g: ? h: ? 
+> Player1:
+Downloaded: 1D, 0V
+Abilities: 5
+a: D1 b: D1 c: V1 d: D2 e: V2 f: D3 g: D1 h: V2 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | . b c S S . g h 
+1 | . . . d e . . . 
+2 | . . . . . . . . 
+3 | . . . . . . G . 
+4 | . A . . . . . . 
+5 | a . . . . . . H 
+6 | . . . D E . . . 
+7 | . B C S S . . . 
+  -----------------
+
+Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: ? B: ? C: ? D: ? E: ? F: D2 G: ? H: ? 
+> Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: V1 B: V2 C: D1 D: V3 E: D1 F: D2 G: V2 H: D1 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | . b c S S . g h 
+1 | . . . d e . . . 
+2 | . . . . . . . . 
+3 | . . . . . . G . 
+4 | . A . . . . . . 
+5 | . . . . . . . H 
+6 | a . . D E . . . 
+7 | . B C S S . . . 
+  -----------------
+
+Player1:
+Downloaded: 1D, 0V
+Abilities: 5
+a: ? b: ? c: ? d: ? e: ? f: D3 g: ? h: ? 
+> Player1:
+Downloaded: 1D, 0V
+Abilities: 5
+a: D1 b: D1 c: V1 d: D2 e: V2 f: D3 g: D1 h: V2 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | . b c S S . g h 
+1 | . . . d e . . . 
+2 | . . . . . . . . 
+3 | . . . . . . G . 
+4 | . A . . . . . H 
+5 | . . . . . . . . 
+6 | a . . D E . . . 
+7 | . B C S S . . . 
+  -----------------
+
+Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: ? B: ? C: ? D: ? E: ? F: D2 G: ? H: ? 
+> Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: V1 B: V2 C: D1 D: V3 E: D1 F: D2 G: V2 H: D1 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | . b c S S . g h 
+1 | . . . d e . . . 
+2 | . . . . . . . . 
+3 | . . . . . . G . 
+4 | . A . . . . . H 
+5 | . . . . . . . . 
+6 | . . . D E . . . 
+7 | a B C S S . . . 
+  -----------------
+
+Player1:
+Downloaded: 1D, 0V
+Abilities: 5
+a: ? b: ? c: ? d: ? e: ? f: D3 g: ? h: ? 
+> Player1:
+Downloaded: 1D, 0V
+Abilities: 5
+a: D1 b: D1 c: V1 d: D2 e: V2 f: D3 g: D1 h: V2 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | . b c S S . g h 
+1 | . . . d e . . . 
+2 | . . . . . . . . 
+3 | . . . . . . G H 
+4 | . A . . . . . . 
+5 | . . . . . . . . 
+6 | . . . D E . . . 
+7 | a B C S S . . . 
+  -----------------
+
+Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: ? B: ? C: ? D: ? E: ? F: D2 G: ? H: ? 
+> Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: V1 B: V2 C: D1 D: V3 E: D1 F: D2 G: V2 H: D1 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | . b c S S . g h 
+1 | . . . d e . . . 
+2 | . . . . . . . . 
+3 | . . . . . . G H 
+4 | . A . . . . . . 
+5 | . . . . . . . . 
+6 | . . . D E . . . 
+7 | . B C S S . . . 
+  -----------------
+
+Player1:
+Downloaded: 2D, 0V
+Abilities: 5
+a: ? b: ? c: ? d: ? e: ? f: D3 g: ? h: ? 
+> Player1:
+Downloaded: 2D, 0V
+Abilities: 5
+a: D1 b: D1 c: V1 d: D2 e: V2 f: D3 g: D1 h: V2 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | . b c S S . g h 
+1 | . . . d e . . . 
+2 | . . . . . . . . 
+3 | . . . . . . G . 
+4 | . A . . . . . H 
+5 | . . . . . . . . 
+6 | . . . D E . . . 
+7 | . B C S S . . . 
+  -----------------
+
+Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: ? B: ? C: ? D: ? E: ? F: D2 G: ? H: ? 
+> Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: V1 B: V2 C: D1 D: V3 E: D1 F: D2 G: V2 H: D1 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | b . c S S . g h 
+1 | . . . d e . . . 
+2 | . . . . . . . . 
+3 | . . . . . . G . 
+4 | . A . . . . . H 
+5 | . . . . . . . . 
+6 | . . . D E . . . 
+7 | . B C S S . . . 
+  -----------------
+
+Player1:
+Downloaded: 2D, 0V
+Abilities: 5
+a: ? b: ? c: ? d: ? e: ? f: D3 g: ? h: ? 
+> Player1:
+Downloaded: 2D, 0V
+Abilities: 5
+a: D1 b: D1 c: V1 d: D2 e: V2 f: D3 g: D1 h: V2 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | b . c S S . g h 
+1 | . . . d e . . . 
+2 | . . . . . . . . 
+3 | . . . . . . G . 
+4 | . A . . . . . . 
+5 | . . . . . . . H 
+6 | . . . D E . . . 
+7 | . B C S S . . . 
+  -----------------
+
+Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: ? B: ? C: ? D: ? E: ? F: D2 G: ? H: ? 
+> Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: V1 B: V2 C: D1 D: V3 E: D1 F: D2 G: V2 H: D1 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | . . c S S . g h 
+1 | b . . d e . . . 
+2 | . . . . . . . . 
+3 | . . . . . . G . 
+4 | . A . . . . . . 
+5 | . . . . . . . H 
+6 | . . . D E . . . 
+7 | . B C S S . . . 
+  -----------------
+
+Player1:
+Downloaded: 2D, 0V
+Abilities: 5
+a: ? b: ? c: ? d: ? e: ? f: D3 g: ? h: ? 
+> Player1:
+Downloaded: 2D, 0V
+Abilities: 5
+a: D1 b: D1 c: V1 d: D2 e: V2 f: D3 g: D1 h: V2 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | . . c S S . g h 
+1 | b . . d e . . . 
+2 | . . . . . . . . 
+3 | . . . . . . G . 
+4 | . A . . . . . . 
+5 | . . . . . . . . 
+6 | . . . D E . . H 
+7 | . B C S S . . . 
+  -----------------
+
+Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: ? B: ? C: ? D: ? E: ? F: D2 G: ? H: ? 
+> Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: V1 B: V2 C: D1 D: V3 E: D1 F: D2 G: V2 H: D1 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | . . c S S . g h 
+1 | . . . d e . . . 
+2 | b . . . . . . . 
+3 | . . . . . . G . 
+4 | . A . . . . . . 
+5 | . . . . . . . . 
+6 | . . . D E . . H 
+7 | . B C S S . . . 
+  -----------------
+
+Player1:
+Downloaded: 2D, 0V
+Abilities: 5
+a: ? b: ? c: ? d: ? e: ? f: D3 g: ? h: ? 
+> Player1:
+Downloaded: 2D, 0V
+Abilities: 5
+a: D1 b: D1 c: V1 d: D2 e: V2 f: D3 g: D1 h: V2 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | . . c S S . g h 
+1 | . . . d e . . . 
+2 | b . . . . . . . 
+3 | . . . . . . G . 
+4 | . A . . . . . . 
+5 | . . . . . . . . 
+6 | . . C D E . . H 
+7 | . B . S S . . . 
+  -----------------
+
+Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: ? B: ? C: ? D: ? E: ? F: D2 G: ? H: ? 
+> Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: V1 B: V2 C: D1 D: V3 E: D1 F: D2 G: V2 H: D1 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | . . c S S . g h 
+1 | . . . d e . . . 
+2 | . . . . . . . . 
+3 | b . . . . . G . 
+4 | . A . . . . . . 
+5 | . . . . . . . . 
+6 | . . C D E . . H 
+7 | . B . S S . . . 
+  -----------------
+
+Player1:
+Downloaded: 2D, 0V
+Abilities: 5
+a: ? b: ? c: ? d: ? e: ? f: D3 g: ? h: ? 
+> Player1:
+Downloaded: 2D, 0V
+Abilities: 5
+a: D1 b: D1 c: V1 d: D2 e: V2 f: D3 g: D1 h: V2 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | . . c S S . g h 
+1 | . . . d e . . . 
+2 | . . . . . . . . 
+3 | b . . . . . G . 
+4 | . A . . . . . . 
+5 | . . C . . . . . 
+6 | . . . D E . . H 
+7 | . B . S S . . . 
+  -----------------
+
+Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: ? B: ? C: ? D: ? E: ? F: D2 G: ? H: ? 
+> Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: V1 B: V2 C: D1 D: V3 E: D1 F: D2 G: V2 H: D1 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | . . c S S . g h 
+1 | . . . d e . . . 
+2 | . . . . . . . . 
+3 | . . . . . . G . 
+4 | b A . . . . . . 
+5 | . . C . . . . . 
+6 | . . . D E . . H 
+7 | . B . S S . . . 
+  -----------------
+
+Player1:
+Downloaded: 2D, 0V
+Abilities: 5
+a: ? b: ? c: ? d: ? e: ? f: D3 g: ? h: ? 
+> Player1:
+Downloaded: 2D, 0V
+Abilities: 5
+a: D1 b: D1 c: V1 d: D2 e: V2 f: D3 g: D1 h: V2 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | . . c S S . g h 
+1 | . . . d e . . . 
+2 | . . . . . . . . 
+3 | . . . . . . G . 
+4 | b A C . . . . . 
+5 | . . . . . . . . 
+6 | . . . D E . . H 
+7 | . B . S S . . . 
+  -----------------
+
+Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: ? B: ? C: ? D: ? E: ? F: D2 G: ? H: ? 
+> Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: V1 B: V2 C: D1 D: V3 E: D1 F: D2 G: V2 H: D1 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | . . c S S . g h 
+1 | . . . d e . . . 
+2 | . . . . . . . . 
+3 | . . . . . . G . 
+4 | . A C . . . . . 
+5 | b . . . . . . . 
+6 | . . . D E . . H 
+7 | . B . S S . . . 
+  -----------------
+
+Player1:
+Downloaded: 2D, 0V
+Abilities: 5
+a: ? b: ? c: ? d: ? e: ? f: D3 g: ? h: ? 
+> Player1:
+Downloaded: 2D, 0V
+Abilities: 5
+a: D1 b: D1 c: V1 d: D2 e: V2 f: D3 g: D1 h: V2 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | . . c S S . g h 
+1 | . . . d e . . . 
+2 | . . . . . . . . 
+3 | . . C . . . G . 
+4 | . A . . . . . . 
+5 | b . . . . . . . 
+6 | . . . D E . . H 
+7 | . B . S S . . . 
+  -----------------
+
+Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: ? B: ? C: ? D: ? E: ? F: D2 G: ? H: ? 
+> Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: V1 B: V2 C: D1 D: V3 E: D1 F: D2 G: V2 H: D1 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | . . c S S . g h 
+1 | . . . d e . . . 
+2 | . . . . . . . . 
+3 | . . C . . . G . 
+4 | . A . . . . . . 
+5 | . . . . . . . . 
+6 | b . . D E . . H 
+7 | . B . S S . . . 
+  -----------------
+
+Player1:
+Downloaded: 2D, 0V
+Abilities: 5
+a: ? b: ? c: ? d: ? e: ? f: D3 g: ? h: ? 
+> Player1:
+Downloaded: 2D, 0V
+Abilities: 5
+a: D1 b: D1 c: V1 d: D2 e: V2 f: D3 g: D1 h: V2 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | . . c S S . g h 
+1 | . . . d e . . . 
+2 | . . C . . . . . 
+3 | . . . . . . G . 
+4 | . A . . . . . . 
+5 | . . . . . . . . 
+6 | b . . D E . . H 
+7 | . B . S S . . . 
+  -----------------
+
+Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: ? B: ? C: ? D: ? E: ? F: D2 G: ? H: ? 
+> Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: V1 B: V2 C: D1 D: V3 E: D1 F: D2 G: V2 H: D1 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | . . c S S . g h 
+1 | . . . d e . . . 
+2 | . . C . . . . . 
+3 | . . . . . . G . 
+4 | . A . . . . . . 
+5 | . . . . . . . . 
+6 | . . . D E . . H 
+7 | b B . S S . . . 
+  -----------------
+
+Player1:
+Downloaded: 2D, 0V
+Abilities: 5
+a: ? b: ? c: ? d: ? e: ? f: D3 g: ? h: ? 
+> No such link: c
+Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: V1 B: V2 C: D1 D: V3 E: D1 F: D2 G: V2 H: D1 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | . . c S S . g h 
+1 | . . . d e . . . 
+2 | . . C . . . . . 
+3 | . . . . . . G . 
+4 | . A . . . . . . 
+5 | . . . . . . . . 
+6 | . . . D E . . H 
+7 | b B . S S . . . 
+  -----------------
+
+Player1:
+Downloaded: 2D, 0V
+Abilities: 5
+a: ? b: ? c: ? d: ? e: ? f: D3 g: ? h: ? 
+> No such link: b
+Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: V1 B: V2 C: D1 D: V3 E: D1 F: D2 G: V2 H: D1 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | . . c S S . g h 
+1 | . . . d e . . . 
+2 | . . C . . . . . 
+3 | . . . . . . G . 
+4 | . A . . . . . . 
+5 | . . . . . . . . 
+6 | . . . D E . . H 
+7 | b B . S S . . . 
+  -----------------
+
+Player1:
+Downloaded: 2D, 0V
+Abilities: 5
+a: ? b: ? c: ? d: ? e: ? f: D3 g: ? h: ? 
+> Player1:
+Downloaded: 2D, 0V
+Abilities: 5
+a: D1 b: D1 c: V1 d: D2 e: V2 f: D3 g: D1 h: V2 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | . . c S S . g h 
+1 | . . . d e . . . 
+2 | . . C . . . . . 
+3 | . . . . . G . . 
+4 | . A . . . . . . 
+5 | . . . . . . . . 
+6 | . . . D E . . H 
+7 | b B . S S . . . 
+  -----------------
+
+Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: ? B: ? C: ? D: ? E: ? F: D2 G: ? H: ? 
+> Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: V1 B: V2 C: D1 D: V3 E: D1 F: D2 G: V2 H: D1 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | . . c S S . . h 
+1 | . . . d e . g . 
+2 | . . C . . . . . 
+3 | . . . . . G . . 
+4 | . A . . . . . . 
+5 | . . . . . . . . 
+6 | . . . D E . . H 
+7 | b B . S S . . . 
+  -----------------
+
+Player1:
+Downloaded: 2D, 0V
+Abilities: 5
+a: ? b: ? c: ? d: ? e: ? f: D3 g: ? h: ? 
+> Player1:
+Downloaded: 2D, 0V
+Abilities: 5
+a: D1 b: D1 c: V1 d: D2 e: V2 f: D3 g: D1 h: V2 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | . . c S S . . h 
+1 | . . . d e . g . 
+2 | . . C . . . . . 
+3 | . A . . . G . . 
+4 | . . . . . . . . 
+5 | . . . . . . . . 
+6 | . . . D E . . H 
+7 | b B . S S . . . 
+  -----------------
+
+Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: ? B: ? C: ? D: ? E: ? F: D2 G: ? H: ? 
+> Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: V1 B: V2 C: D1 D: V3 E: D1 F: D2 G: V2 H: D1 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | . . c S S . . h 
+1 | . . . d e . . . 
+2 | . . C . . . g . 
+3 | . A . . . G . . 
+4 | . . . . . . . . 
+5 | . . . . . . . . 
+6 | . . . D E . . H 
+7 | b B . S S . . . 
+  -----------------
+
+Player1:
+Downloaded: 2D, 0V
+Abilities: 5
+a: ? b: ? c: ? d: ? e: ? f: D3 g: ? h: ? 
+> Player1:
+Downloaded: 2D, 0V
+Abilities: 5
+a: D1 b: D1 c: V1 d: D2 e: V2 f: D3 g: D1 h: V2 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | . . c S S . . h 
+1 | . . . d e . . . 
+2 | . . C . . . g . 
+3 | . . . . . G . . 
+4 | . A . . . . . . 
+5 | . . . . . . . . 
+6 | . . . D E . . H 
+7 | b B . S S . . . 
+  -----------------
+
+Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: ? B: ? C: ? D: ? E: ? F: D2 G: ? H: ? 
+> Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: V1 B: V2 C: D1 D: V3 E: D1 F: D2 G: V2 H: D1 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | . . c S S . . h 
+1 | . . . d e . . . 
+2 | . . C . . . . . 
+3 | . . . . . G g . 
+4 | . A . . . . . . 
+5 | . . . . . . . . 
+6 | . . . D E . . H 
+7 | b B . S S . . . 
+  -----------------
+
+Player1:
+Downloaded: 2D, 0V
+Abilities: 5
+a: ? b: ? c: ? d: ? e: ? f: D3 g: ? h: ? 
+> Player1:
+Downloaded: 2D, 0V
+Abilities: 5
+a: D1 b: D1 c: V1 d: D2 e: V2 f: D3 g: D1 h: V2 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | . . c S S . . h 
+1 | . . . d e . . . 
+2 | . . C . . . . . 
+3 | . A . . . G g . 
+4 | . . . . . . . . 
+5 | . . . . . . . . 
+6 | . . . D E . . H 
+7 | b B . S S . . . 
+  -----------------
+
+Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: ? B: ? C: ? D: ? E: ? F: D2 G: ? H: ? 
+> Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: V1 B: V2 C: D1 D: V3 E: D1 F: D2 G: V2 H: D1 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | . . c S S . . h 
+1 | . . . d e . . . 
+2 | . . C . . . . . 
+3 | . A . . . G . . 
+4 | . . . . . . g . 
+5 | . . . . . . . . 
+6 | . . . D E . . H 
+7 | b B . S S . . . 
+  -----------------
+
+Player1:
+Downloaded: 2D, 0V
+Abilities: 5
+a: ? b: ? c: ? d: ? e: ? f: D3 g: ? h: ? 
+> Player1:
+Downloaded: 2D, 0V
+Abilities: 5
+a: D1 b: D1 c: V1 d: D2 e: V2 f: D3 g: D1 h: V2 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | . . c S S . . h 
+1 | . . . d e . . . 
+2 | . . C . . . . . 
+3 | . . . . . G . . 
+4 | . A . . . . g . 
+5 | . . . . . . . . 
+6 | . . . D E . . H 
+7 | b B . S S . . . 
+  -----------------
+
+Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: ? B: ? C: ? D: ? E: ? F: D2 G: ? H: ? 
+> Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: V1 B: V2 C: D1 D: V3 E: D1 F: D2 G: V2 H: D1 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | . . c S S . . h 
+1 | . . . d e . . . 
+2 | . . C . . . . . 
+3 | . . . . . G . . 
+4 | . A . . . . . . 
+5 | . . . . . . g . 
+6 | . . . D E . . H 
+7 | b B . S S . . . 
+  -----------------
+
+Player1:
+Downloaded: 2D, 0V
+Abilities: 5
+a: ? b: ? c: ? d: ? e: ? f: D3 g: ? h: ? 
+> Player1:
+Downloaded: 2D, 0V
+Abilities: 5
+a: D1 b: D1 c: V1 d: D2 e: V2 f: D3 g: D1 h: V2 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | . . c S S . . h 
+1 | . . . d e . . . 
+2 | . . C . . . . . 
+3 | . A . . . G . . 
+4 | . . . . . . . . 
+5 | . . . . . . g . 
+6 | . . . D E . . H 
+7 | b B . S S . . . 
+  -----------------
+
+Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: ? B: ? C: ? D: ? E: ? F: D2 G: ? H: ? 
+> Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: V1 B: V2 C: D1 D: V3 E: D1 F: D2 G: V2 H: D1 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | . . c S S . . h 
+1 | . . . d e . . . 
+2 | . . C . . . . . 
+3 | . A . . . G . . 
+4 | . . . . . . . . 
+5 | . . . . . . . . 
+6 | . . . D E . g H 
+7 | b B . S S . . . 
+  -----------------
+
+Player1:
+Downloaded: 2D, 0V
+Abilities: 5
+a: ? b: ? c: ? d: ? e: ? f: D3 g: ? h: ? 
+> Player1:
+Downloaded: 2D, 0V
+Abilities: 5
+a: D1 b: D1 c: V1 d: D2 e: V2 f: D3 g: D1 h: V2 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | . . c S S . . h 
+1 | . . . d e . . . 
+2 | . . C . . . . . 
+3 | . . . . . G . . 
+4 | . A . . . . . . 
+5 | . . . . . . . . 
+6 | . . . D E . g H 
+7 | b B . S S . . . 
+  -----------------
+
+Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: ? B: ? C: ? D: ? E: ? F: D2 G: ? H: ? 
+> Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: V1 B: V2 C: D1 D: V3 E: D1 F: D2 G: V2 H: D1 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | . . c S S . . h 
+1 | . . . d e . . . 
+2 | . . C . . . . . 
+3 | . . . . . G . . 
+4 | . A . . . . . . 
+5 | . . . . . . . . 
+6 | . . . D E . . H 
+7 | b B . S S . g . 
+  -----------------
+
+Player1:
+Downloaded: 2D, 0V
+Abilities: 5
+a: ? b: ? c: ? d: ? e: ? f: D3 g: ? h: ? 
+> Player1:
+Downloaded: 2D, 0V
+Abilities: 5
+a: D1 b: D1 c: V1 d: D2 e: V2 f: D3 g: D1 h: V2 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | . . c S S . . h 
+1 | . . . d e . . . 
+2 | . . C . . . . . 
+3 | . A . . . G . . 
+4 | . . . . . . . . 
+5 | . . . . . . . . 
+6 | . . . D E . . H 
+7 | b B . S S . g . 
+  -----------------
+
+Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: ? B: ? C: ? D: ? E: ? F: D2 G: ? H: ? 
+> Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: V1 B: V2 C: D1 D: V3 E: D1 F: D2 G: V2 H: D1 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | . . c S S . . h 
+1 | . . . d e . . . 
+2 | . . C . . . . . 
+3 | . A . . . G . . 
+4 | . . . . . . . . 
+5 | . . . . . . . . 
+6 | . . . D E . . H 
+7 | b B . S S . . . 
+  -----------------
+
+Player1:
+Downloaded: 3D, 0V
+Abilities: 5
+a: ? b: ? c: ? d: ? e: ? f: D3 g: ? h: ? 
+> Player1:
+Downloaded: 3D, 0V
+Abilities: 5
+a: D1 b: D1 c: V1 d: D2 e: V2 f: D3 g: D1 h: V2 
+    0 1 2 3 4 5 6 7 
+  -----------------
+0 | . . c S S . . h 
+1 | . . . d e . . . 
+2 | . . C . . . . . 
+3 | . . . . . G . . 
+4 | . A . . . . . . 
+5 | . . . . . . . . 
+6 | . . . D E . . H 
+7 | b B . S S . . . 
+  -----------------
+
+Player2:
+Downloaded: 1D, 0V
+Abilities: 5
+A: ? B: ? C: ? D: ? E: ? F: D2 G: ? H: ? 
+> Game over! Player 1 wins!

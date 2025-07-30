@@ -6,7 +6,7 @@
 #include <set>
 #include "link.h"
 #include "ability.h"
-
+class Board; 
 class Player {
     std::string name;
     std::vector<std::unique_ptr<Link>>    links;
@@ -26,14 +26,14 @@ public:
     std::vector<std::unique_ptr<Link>>& getLinks();
 
     // --- Ability management ---
-    void addAbility(std::unique_ptr<Ability> ability);
+    void addAbility(Ability* ability);
     std::vector<std::unique_ptr<Ability>>& getAbilities();
-    void useAbility(int abilityIndex, const std::vector<std::string>& args, Player& opponent);
+    void useAbility(int abilityIndex, const std::vector<std::string>& args, Player& opponent, Board& board);
 
     // --- Download tracking ---
     void downloadLink(Link* link);
-    int  getDataDownloaded()  const;
-    int  getVirusDownloaded() const;
+    int getDataDownloaded()  const;
+    int getVirusDownloaded() const;
 
     // --- Misc ---
     const std::string& getName() const;
@@ -41,4 +41,8 @@ public:
     void printStatus(const Player& viewer) const;
     void revealLink(char linkId);
     bool isLinkRevealed(char linkId) const;
+    void concealOpponentLink(char id);
+    void replaceLink(Link* oldL, Link* newL);
+    void setAbilityUsesLeft(int n) { abilityUsesLeft = n; }
+    string getStatusString(const Player& viewer) const;
 };

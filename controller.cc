@@ -26,15 +26,12 @@ void Controller::run() {
     std::cout << "Welcome to RAIInet! Type 'help' for commands." << std::endl;
     std::string line;
     while (true) {
+        if(gameOver) break;
         std::cout << (setupMode ? "(setup)> " : "> ");
         if (!std::getline(std::cin, line)) break;
         if (line.empty()) continue;
         if (line == "quit") break;
         processCommand(line);
-        if (!setupMode && game.isGameOver()) {
-            std::cout << "Game over!" << std::endl;
-            break;
-        }
     }
 }
 
@@ -62,8 +59,7 @@ void Controller::processCommand(const std::string& cmd) {
         parseAbility(tokens);
     } else if (c == "abilities") {
         printAbilities();
-    }
-    else if (c == "move") {
+    } else if (c == "move") {
         parseMove(tokens);
     } else if (c == "board") {
         game.display();
@@ -83,6 +79,13 @@ void Controller::parseMove(const std::vector<std::string>& args) {
     }
     abilityUsedThisTurn = false;  // Reset after ability use
     game.move(args[1], args[2]);
+    if (game.isGameOver()) {
+        int w = game.getWinner();
+        if (w == 1) std::cout << "Game over! Player 1 wins!\n";
+        else if (w == 2) std::cout << "Game over! Player 2 wins!\n";
+        gameOver = true; // so run() breaks next prompt
+        return;
+    }
     game.display();
 }
 
@@ -97,6 +100,13 @@ void Controller::parseAbility(const std::vector<std::string>& args) {
     }
     std::vector<std::string> abilityArgs(args.begin() + 2, args.end());
     game.useAbility(args[1], abilityArgs);
+    if (game.isGameOver()) {
+        int w = game.getWinner();
+        if (w == 1) std::cout << "Game over! Player 1 wins!\n";
+        else if (w == 2) std::cout << "Game over! Player 2 wins!\n";
+        gameOver = true;
+        return;
+    }
     abilityUsedThisTurn = true;
     game.display();
 }
@@ -119,6 +129,21 @@ void Controller::parseSequence(const std::vector<std::string>& args) {
     }
 }
 
+void Controller::startGameIfReady() {
+    if (!link1Loaded) {
+        game.randomizeLinksForPlayer(1);
+        std::cout << "Player 1 links randomized.\n";
+    }
+    if (!link2Loaded) {
+        game.randomizeLinksForPlayer(2);
+        std::cout << "Player 2 links randomized.\n";
+    }
+    game.init();
+    game.start();
+    setupMode = false;
+    abilityUsedThisTurn = false;
+}
+
 void Controller::parseSetup(const std::vector<std::string>& args) {
     if (args.size() < 2) {
         std::cout << "Usage: setup <option> [params]" << std::endl;
@@ -127,9 +152,11 @@ void Controller::parseSetup(const std::vector<std::string>& args) {
     const auto& opt = args[1];
     if (opt == "link1" && args.size() == 3) {
         game.loadLinkConfig(1, args[2]);
+        link1Loaded = true;  // Mark link1 loaded
         std::cout << "Link1 configuration loaded." << std::endl;
     } else if (opt == "link2" && args.size() == 3) {
         game.loadLinkConfig(2, args[2]);
+        link2Loaded = true;  // Mark link2 loaded
         std::cout << "Link2 configuration loaded." << std::endl;
     } else if (opt == "abilities1" && args.size() == 3) {
         auto order = splitList(args[2]);

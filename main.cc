@@ -28,14 +28,28 @@ int main(int argc, char* argv[]) {
         }
     }
 
-    Controller controller{textOnly};
-    // Apply initial setup flags
-    if (!link1File.empty()) controller.processCommand("setup link1 " + link1File);
-    if (!link2File.empty()) controller.processCommand("setup link2 " + link2File);
-    if (!abilityOrder1.empty()) controller.processCommand("setup abilities1 " + abilityOrder1);
-    if (!abilityOrder2.empty()) controller.processCommand("setup abilities2 " + abilityOrder2);
+    Xwindow* xw = nullptr;
+    Controller* controller = nullptr;
 
-    controller.processCommand("start");  // auto-start after setup
-    controller.run();
+    if (graphics) {
+        // Create an actual X window; pick any reasonable size
+        xw = new Xwindow(400, 400+120);
+        controller = new Controller(xw);     // <-- uses Game(Xwindow*)
+    } else {
+        controller = new Controller(true);   // <-- text-only path
+    }
+
+    // Apply initial setup flags BEFORE start
+    if (!link1File.empty()) controller->processCommand("setup link1 " + link1File);
+    if (!link2File.empty()) controller->processCommand("setup link2 " + link2File);
+    if (!abilityOrder1.empty()) controller->processCommand("setup abilities1 " + abilityOrder1);
+    if (!abilityOrder2.empty()) controller->processCommand("setup abilities2 " + abilityOrder2);
+
+    controller->processCommand("start");  // create board & begin game
+    controller->run();
+
+    delete controller;
+    delete xw;
     return 0;
+
 }

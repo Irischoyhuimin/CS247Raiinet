@@ -12,12 +12,17 @@
 #include "heal.h"
 #include "mask.h"
 #include "swap.h"
+#include <unordered_map>
+#include "display.h"
+#include <cstdlib>
+#include <ctime>
 
+using namespace std;
 Game::Game(bool textOnly)
     : board{}, player1("Player1"), player2("Player2"),
       activePlayer(&player1), inactivePlayer(&player2),
       enhancementsOn(false), textOnly(textOnly), xw(nullptr) {
-        std::vector<std::string> defaultOrder = {"LinkBoost", "Firewall", "Download", "Scan", "Polarize"};
+        vector<string> defaultOrder = {"LinkBoost", "Firewall", "Download", "Scan", "Polarize"};
         setAbilityOrder(1, defaultOrder);
         setAbilityOrder(2, defaultOrder);
       }
@@ -33,17 +38,16 @@ void Game::init() {
 
 void Game::start() {
     board.setup();
-    display();
-    std::cout << "Game started.\n";
+    cout << "Game started.\n";
 }
 
 void Game::toggleEnhancements() {
     enhancementsOn = !enhancementsOn;
-    std::cout << "[DEBUG] Enhancements turned "
+    cout << "[DEBUG] Enhancements turned "
               << (enhancementsOn ? "on" : "off") << ".\n";
 }
 
-void Game::move(const std::string& dir, const std::string& linkId) {
+void Game::move(const string& dir, const string& linkId) {
     // Find the Link* owned by activePlayer with that id (case-sensitive)
     Link* link = nullptr;
     for (const auto& lp : activePlayer->getLinks()) {
@@ -53,7 +57,7 @@ void Game::move(const std::string& dir, const std::string& linkId) {
         }
     }
     if (!link) {
-        std::cout << "No such link: " << linkId << "\n";
+        cout << "No such link: " << linkId << "\n";
         return;
     }
 
@@ -72,86 +76,159 @@ void Game::move(const std::string& dir, const std::string& linkId) {
     }
 
     if (currX == -1) {
-        std::cout << "Link not found on board.\n";
+        cout << "Link not found on board.\n";
         return;
     }
 
     // Calculate new coordinates based on dir
-    int newX = currX, newY = currY;
-    if (dir == "up") newX--;
-    else if (dir == "down") newX++;
-    else if (dir == "left") newY--;
-    else if (dir == "right") newY++;
+    int stepX = 0, stepY = 0;
+    if (dir == "up") stepX = -1;
+    else if (dir == "down") stepX = 1;
+    else if (dir == "left") stepY = -1;
+    else if (dir == "right") stepY = 1;
     else {
-        std::cout << "Invalid direction: " << dir << "\n";
+        cout << "Invalid direction: " << dir << "\n";
         return;
+    }
+
+    int newX = currX + stepX;
+    int newY = currY + stepY;
+
+    if (link->hasBoost()) {
+        newX += stepX;
+        newY += stepY;
     }
 
     // Check if move is invalid
     if (board.isInvalidMove(*link, newX, newY, *activePlayer)) {
-        std::cout << "Invalid move.\n";
+        cout << "Invalid move.\n";
         return;
     }
 
     // Perform the move (handle battles inside board.move)
     board.move(activePlayer, inactivePlayer, *link, newX, newY);
-
+    if(isGameOver()) return;
     // Optionally switch players here, or after some other phase
     switchPlayers();
 }
 
 
-void Game::useAbility(const std::string& abilityIdx, const std::vector<std::string>& args) {
-    int id = std::stoi(abilityIdx);
-    activePlayer->useAbility(id - 1, args, *inactivePlayer);
+void Game::useAbility(const string& abilityIdx, const vector<string>& args) {
+    int id = stoi(abilityIdx);
+    activePlayer->useAbility(id - 1, args, *inactivePlayer, board);
 }
 
 void Game::display() const {
     activePlayer->printStatus(*activePlayer);
     board.printTextDisplay();
     inactivePlayer->printStatus(*activePlayer);
+    if (auto gd = board.getGD()) {
+        gd->update(activePlayer, inactivePlayer);//  force GUI redraw each call to display()
+        gd->drawPlayerStatus(*activePlayer, activePlayer, 10, 420);
+        gd->drawPlayerStatus(*inactivePlayer, activePlayer, 10, 460);
+    }
 }
 
 bool Game::isGameOver() const {
-    return activePlayer->getDataDownloaded() >= 4 ||
-           activePlayer->getVirusDownloaded() >= 4 || inactivePlayer->getVirusDownloaded() >= 4 || inactivePlayer->getVirusDownloaded() >= 4;
+    return activePlayer->getDataDownloaded() >= 4 
+        || activePlayer->getVirusDownloaded() >= 4 
+        || inactivePlayer->getDataDownloaded() >= 4 
+        || inactivePlayer->getVirusDownloaded() >= 4;
+}
+
+int Game::getWinner() const {
+    int p1Data = player1.getDataDownloaded();
+    int p1Virus = player1.getVirusDownloaded();
+    int p2Data = player2.getDataDownloaded();
+    int p2Virus = player2.getVirusDownloaded();
+
+    if (p1Data >= 4) return 1;         // Player 1 wins
+    if (p1Virus >= 4) return 2;        // Player 1 lost, so Player 2 wins
+    if (p2Data >= 4) return 2;         // Player 2 wins
+    if (p2Virus >= 4) return 1;        // Player 2 lost, so Player 1 wins
+
+    return 0;                         // No winner yet
 }
 
 void Game::switchPlayers() {
-    std::swap(activePlayer, inactivePlayer);
+    swap(activePlayer, inactivePlayer);   
 }
 
-void Game::loadLinkConfig(int playerNum, const std::string& filename) {
+void Game::loadLinkConfig(int playerNum, const string& filename) {
     Player* p = (playerNum == 1 ? &player1 : &player2);
-    std::ifstream infile(filename);
+    ifstream infile(filename);
     if (!infile) {
-        std::cerr << "Failed to open link config: " << filename << "\n";
+        cerr << "Failed to open link config: " << filename << "\n";
         return;
     }
-    std::string config, line;
-    while (std::getline(infile, line)) {
+    string config, line;
+    while (getline(infile, line)) {
         if (!config.empty()) config += " ";
         config += line;
     }
     board.setupLinks(*p, config);
 }
 
-void Game::setAbilityOrder(int playerNum, const std::vector<std::string>& order) {
-    Player* p = (playerNum == 1 ? &player1 : &player2);
-    auto& abilities = p->getAbilities();
+void Game::setAbilityOrder(int playerNum, const vector<string>& order) {
+    Player& player = (playerNum == 1) ? player1 : player2;
+    auto& abilities = player.getAbilities();
     abilities.clear();
-    for (const auto& type : order) {
-        if (type == "LinkBoost")      abilities.push_back(std::make_unique<LinkBoost>());
-        else if (type == "Firewall")  abilities.push_back(std::make_unique<Firewall>());
-        else if (type == "Download")  abilities.push_back(std::make_unique<Download>());
-        else if (type == "Scan")      abilities.push_back(std::make_unique<Scan>());
-        else if (type == "Polarize")  abilities.push_back(std::make_unique<Polarize>());
-        else if (type == "Heal")      abilities.push_back(std::make_unique<Heal>());
-        else if (type == "MaskAbility") abilities.push_back(std::make_unique<MaskAbility>());
-        else if (type == "Swap")      abilities.push_back(std::make_unique<Swap>());
-        else std::cerr << "Unknown ability: " << type << "\n";
+
+    for (const string& rawType : order) {
+        if (abilities.size() >= 5) break;
+        
+        if (rawType == "LinkBoost") {
+            abilities.push_back(std::unique_ptr<Ability>(new LinkBoost()));
+        } else if (rawType == "Firewall") {
+            abilities.push_back(std::unique_ptr<Ability>(new Firewall()));
+        } else if (rawType == "Download") {
+            abilities.push_back(std::unique_ptr<Ability>(new Download()));
+        } else if (rawType == "Scan") {
+            abilities.push_back(std::unique_ptr<Ability>(new Scan()));
+        } else if (rawType == "Polarize") {
+            abilities.push_back(std::unique_ptr<Ability>(new Polarize()));
+        } else if (rawType == "Swap") {
+            abilities.push_back(std::unique_ptr<Ability>(new Swap()));
+        } else if (rawType == "Heal") {
+            abilities.push_back(std::unique_ptr<Ability>(new Heal()));
+        } else if (rawType == "Mask") {
+            abilities.push_back(std::unique_ptr<Ability>(new MaskAbility()));
+        } else {
+            cerr << "Unknown ability type: " << rawType << endl;
+        }
     }
 }
 
 Player& Game::getCurrentPlayer() { return *activePlayer; }
 const Player& Game::getCurrentPlayer() const { return *activePlayer; }
+
+void Game::simpleRandomizeLinks(vector<unique_ptr<Link>>& links) {
+    static bool seeded = false;
+    if (!seeded) {
+        srand(time(nullptr));
+        seeded = true;
+    }
+    for (int i = links.size() - 1; i > 0; --i) {
+        int j = rand() % (i + 1);
+        swap(links[i], links[j]);
+    }
+}
+
+void Game::randomizeLinksForPlayer(Player& player) {
+    vector<unique_ptr<Link>> links;
+    links.push_back(make_unique<Data>('a', &player, 1)); // D1
+    links.push_back(make_unique<Data>('b', &player, 2)); // D2
+    links.push_back(make_unique<Data>('c', &player, 3)); // D3
+    links.push_back(make_unique<Data>('d', &player, 4)); // D4
+
+    links.push_back(make_unique<Virus>('e', &player, 1)); // V1
+    links.push_back(make_unique<Virus>('f', &player, 2)); // V2
+    links.push_back(make_unique<Virus>('g', &player, 3)); // V3
+    links.push_back(make_unique<Virus>('h', &player, 4)); // V4
+    simpleRandomizeLinks(links);
+}
+
+void Game::randomizeLinksForPlayer(int playerNum) {
+    Player& p = (playerNum == 1) ? player1 : player2;
+    randomizeLinksForPlayer(p);
+}             
