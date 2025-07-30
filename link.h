@@ -16,7 +16,7 @@ protected:
 public:
     Link(char id, Player* owner, int strength);
     virtual ~Link() = default;
-    virtual std::string getType() const = 0;
+    virtual string getType() const = 0;
     char getId() const;
     Player* getOwner() const;
     int getStrength() const;
@@ -29,12 +29,12 @@ public:
 class Virus : public Link {
 public:
     Virus(char id, Player* owner, int strength);
-    std::string getType() const override;
+    string getType() const override;
 };
 
 class Data : public Link {
 public:
     Data(char id, Player* owner, int strength);
-    std::string getType() const override;
+    string getType() const override;
 };
 #endif

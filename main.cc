@@ -5,12 +5,12 @@
 int main(int argc, char* argv[]) {
     bool graphics = false;
     bool textOnly = true;
-    std::string link1File, link2File;
-    std::string abilityOrder1, abilityOrder2;
+    string link1File, link2File;
+    string abilityOrder1, abilityOrder2;
 
     // Simple flag parsing
     for (int i = 1; i < argc; ++i) {
-        std::string arg = argv[i];
+        string arg = argv[i];
         if (arg == "-graphics") {
             graphics = true;
             textOnly = false;
@@ -23,7 +23,7 @@ int main(int argc, char* argv[]) {
         } else if (arg == "-ability2" && i+1 < argc) {
             abilityOrder2 = argv[++i];
         } else {
-            std::cerr << "Unknown option: " << arg << "\n";
+            cerr << "Unknown option: " << arg << "\n";
             return 1;
         }
     }
@@ -33,7 +33,7 @@ int main(int argc, char* argv[]) {
 
     if (graphics) {
         // Create an actual X window; pick any reasonable size
-        xw = new Xwindow(400, 400+160);
+        xw = new Xwindow(480, 400+180);
         controller = new Controller(xw);     // <-- uses Game(Xwindow*)
     } else {
         controller = new Controller(true);   // <-- text-only path

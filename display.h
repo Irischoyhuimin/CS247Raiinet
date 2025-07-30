@@ -27,6 +27,7 @@ class GraphicsDisplay : public Observer {
     int linkColorP1;
     int linkColorP2;
     int boardOffsetY;
+    int boardOffsetX;
 public:
     GraphicsDisplay(Board* b, Xwindow* xw);
     void update() override;

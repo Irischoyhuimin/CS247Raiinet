@@ -240,7 +240,7 @@ bool Board::canPlaceFirewallAt(int x, int y) const {
 
 void Board::placeFirewall(int x, int y, Player* owner) {
     if (!canPlaceFirewallAt(x, y)) {
-        std::cout << "Cannot place firewall at (" << x << "," << y << ").\n";
+        cout << "Cannot place firewall at (" << x << "," << y << ").\n";
         return;
     }
     grid[x][y].setFirewall(owner);
@@ -288,7 +288,7 @@ bool Board::swapLinks(Link* l1, Link* l2) {
     }
 
     if (!cell1 || !cell2) {
-        std::cout << "One or both links are not on the board.\n";
+        cout << "One or both links are not on the board.\n";
         return false;
     }
 

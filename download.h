@@ -7,16 +7,16 @@
 class Download : public Ability {
 public:
     Download() { used = false; }
-    void apply(Player& active, Player& opponent, const std::vector<std::string>& args, Board& board) {
+    void apply(Player& active, Player& opponent, const vector<string>& args, Board& board) {
         if (args.size() < 1) {
-            std::cout << "Usage: ability <index> <linkId>\n";
+            cout << "Usage: ability <index> <linkId>\n";
             return;
         }
 
         char targetId = args[0][0];
         Link* target = opponent.getLinkById(targetId);
         if (!target || target->downloaded()) {
-            std::cout << "Invalid target link for download.\n";
+            cout << "Invalid target link for download.\n";
             return;
         }
 
@@ -28,7 +28,7 @@ public:
         // Mark as downloaded (updates D/V counters)
         opponent.downloadLink(target);
 
-        std::cout << "Downloaded opponent's link " << targetId << ".\n";
+        cout << "Downloaded opponent's link " << targetId << ".\n";
     }
     bool isValid(Player& player) const override {
         // Can use if not yet used and at least one link is available to download
@@ -38,7 +38,7 @@ public:
         }
         return false;
     }
-    std::string getType() const override { return "Download"; }
+    string getType() const override { return "Download"; }
 };
 
 #endif // DOWNLOAD_H

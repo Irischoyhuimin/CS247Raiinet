@@ -1,11 +1,11 @@
 #include "xwindow.h"
 #include <iostream>
 #include <unistd.h>  // for usleep
-
+using namespace std;
 Xwindow::Xwindow(int width, int height) {
     dpy = XOpenDisplay(nullptr);
     if (!dpy) {
-        throw std::runtime_error("Cannot open X display");
+        throw runtime_error("Cannot open X display");
     }
 
     int scr = DefaultScreen(dpy);
@@ -62,7 +62,7 @@ void Xwindow::fillRectangle(int x, int y, int w, int h, int colour) {
     XFlush(dpy);
 }
 
-void Xwindow::drawString(int x, int y, const std::string& msg, int colour) {
+void Xwindow::drawString(int x, int y, const string& msg, int colour) {
     XSetForeground(dpy, gc, colours[colour]);
     XDrawString(dpy, win, gc, x, y, msg.c_str(), static_cast<int>(msg.size()));
     XSetForeground(dpy, gc, colours[Black]); // restore default

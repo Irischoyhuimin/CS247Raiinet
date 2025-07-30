@@ -20,20 +20,20 @@ void TextDisplay::print() {
     // Column header
     cout << "    ";
     for (int col = 0; col < size; ++col) {
-        std::cout << col << " ";
+        cout << col << " ";
     }
     cout << "\n";
 
     // Top border
-    std::cout << "  ";
+    cout << "  ";
     for (int col = 0; col < size; ++col) {
-        std::cout << "--";
+        cout << "--";
     }
-    std::cout << "-\n";
+    cout << "-\n";
 
     for (int i = 0; i < size; ++i) {
         // Row label and left border
-        std::cout << i << " | ";
+        cout << i << " | ";
 
         for (int j = 0; j < size; ++j) {
             char toPrint = '.';

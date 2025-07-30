@@ -12,11 +12,12 @@ GraphicsDisplay::GraphicsDisplay(Board* b, Xwindow* xw)
     : board(b), window(xw),
       backgroundColor(Xwindow::White),
       firewallColorP1(Xwindow::Blue),
-      firewallColorP2(Xwindow::Red),
+      firewallColorP2(Xwindow::Cyan),
       serverPortColor(Xwindow::Yellow),
       linkColorP1(Xwindow::Blue),
       linkColorP2(Xwindow::Red),
-      boardOffsetY(80),
+      boardOffsetY(100),
+      boardOffsetX(40),
       cellSize(50) // pixels per cell
 {}
 
@@ -35,26 +36,37 @@ void GraphicsDisplay::redrawBoard(const Player* viewer, const Player* opponent) 
     const int boardH = size * cellSize;
 
     // Clear entire area (top status + board + bottom status)
-    window->fillRectangle(0, 0, boardW, boardH + 120, backgroundColor);
+    window->fillRectangle(0, 0, boardW, boardH + 180, backgroundColor);
 
     // Top: current player's full status (viewer)
     if (viewer) {
         drawPlayerStatus(*viewer, viewer, 10, 20);
     }
+    
+    for (int c = 0; c < size; ++c) {
+        const int x = boardOffsetX + c * cellSize + cellSize / 2 - 4;
+        const int y = boardOffsetY - 12;                // just above the grid
+        if (y >= 0) window->drawString(x, y, std::to_string(c), Xwindow::Black);
+    }
 
-    // Draw all cells
+    // Row numbers (left) + cells
     for (int r = 0; r < size; ++r) {
+        const int rx = boardOffsetX - 20;                                          // left of grid
+        const int ry = boardOffsetY + r * cellSize + cellSize / 2 + 5;              // vertically centered
+        if (rx >= 0) window->drawString(rx, ry, std::to_string(r), Xwindow::Black);
+
         for (int c = 0; c < size; ++c) {
             redrawCell(r, c, viewer);
         }
     }
+
 
     // Grid lines
     drawGrid();
 
     // Bottom: opponent’s status
     if (opponent) {
-        drawPlayerStatus(*opponent, viewer, 10, boardH + 100);
+        drawPlayerStatus(*opponent, viewer, 10, boardH + 125);
     }
 }
 
@@ -63,7 +75,7 @@ void GraphicsDisplay::redrawCell(int row, int col, const Player* viewer) {
     auto& grid = *(board->getGrid());
     Cell& cell = grid[row][col];
 
-    const int px = col * cellSize;
+    const int px = boardOffsetX + col * cellSize;
     const int py = boardOffsetY + row * cellSize;
 
     // Background
@@ -97,7 +109,7 @@ void GraphicsDisplay::redrawCell(int row, int col, const Player* viewer) {
 }
 
 void GraphicsDisplay::drawLink(int row, int col, Link* link, bool revealed) {
-    const int px = col * cellSize;
+    const int px = boardOffsetX + col * cellSize;
     const int py = boardOffsetY + row * cellSize;
 
     // Colour by reveal+type: unknown=black, Data=green, Virus=red
@@ -117,12 +129,12 @@ void GraphicsDisplay::drawPlayerStatus(const Player& player, const Player* viewe
     // If no viewer provided, default to showing as if the player is the viewer
     const Player& v = viewer ? *viewer : player;
 
-    std::string status = player.getStatusString(v);
-    std::istringstream iss(status);
-    std::string line;
+    string status = player.getStatusString(v);
+    istringstream iss(status);
+    string line;
     int lineHeight = 15;
     int i = 0;
-    while (std::getline(iss, line)) {
+    while (getline(iss, line)) {
         window->drawString(x, y + i * lineHeight, line, Xwindow::Black);
         ++i;
     }
@@ -136,11 +148,11 @@ void GraphicsDisplay::drawGrid() {
     // Vertical lines
     for (int c = 0; c <= size; ++c) {
         int x = c * cellSize;
-        window->drawLine(x, boardOffsetY, x, h+boardOffsetY, Xwindow::Black);
+        window->drawLine(boardOffsetX + x, boardOffsetY, boardOffsetX + x, h+boardOffsetY, Xwindow::Black);
     }
     // Horizontal lines
     for (int r = 0; r <= size; ++r) {
         int y = r * cellSize;
-        window->drawLine(0, y+boardOffsetY, w, y+boardOffsetY, Xwindow::Black);
+        window->drawLine(boardOffsetX, y+boardOffsetY, boardOffsetX + w, y+boardOffsetY, Xwindow::Black);
     }
 }

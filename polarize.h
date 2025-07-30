@@ -7,9 +7,9 @@
 class Polarize : public Ability {
 public:
     Polarize() { used = false; }
-    void apply(Player& active, Player& opponent, const std::vector<std::string>& args, Board& board) {
+    void apply(Player& active, Player& opponent, const vector<string>& args, Board& board) {
         if (args.size() < 1) {
-            std::cout << "Usage: ability <index> <linkId>\n";
+            cout << "Usage: ability <index> <linkId>\n";
             return;
         }
 
@@ -17,7 +17,7 @@ public:
         Link* targetLink = opponent.getLinkById(targetId);
 
         if (!targetLink || targetLink->downloaded()) {
-            std::cout << "Invalid target link for polarize.\n";
+            cout << "Invalid target link for polarize.\n";
             return;
         }
 
@@ -40,13 +40,13 @@ public:
         // Update the Board cell to point to new link
         board.replaceLink(targetLink, newLink);
 
-        std::cout << "Link " << id << " polarized.\n";
+        cout << "Link " << id << " polarized.\n";
     }
     bool isValid(Player& player) const override {
         // Can use if not yet used
         return !used;
     }
-    std::string getType() const override { return "Polarize"; }
+    string getType() const override { return "Polarize"; }
 };
 
 #endif // POLARIZE_H
