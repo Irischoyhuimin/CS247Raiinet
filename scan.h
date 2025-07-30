@@ -27,4 +27,4 @@ public:
     std::string getType() const override { return "Scan"; }
 };
 
-#endif // SCAN_H
+#endif 

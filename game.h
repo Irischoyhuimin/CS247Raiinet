@@ -5,13 +5,13 @@
 #include "board.h"
 #include "player.h"
 #include "xwindow.h"
-
+//our Command Interpreter 
 class Game
 {
     Board board;
     Player player1;
     Player player2;
-    Player *activePlayer;
+    Player *activePlayer; 
     Player *inactivePlayer;
     bool enhancementsOn;
     bool textOnly;

@@ -2,13 +2,14 @@
 #include <iostream>
 #include <sstream>
 #include <fstream>
+using namespace std;
 
-// Utility: split comma-separated list
-static std::vector<std::string> splitList(const std::string& s) {
-    std::vector<std::string> out;
-    std::string token;
-    std::istringstream iss(s);
-    while (std::getline(iss, token, ',')) {
+
+static vector<string> splitList(const string& s) {
+    vector<string> out;
+    string token;
+    istringstream iss(s);
+    while (getline(iss, token, ',')) {
         if (!token.empty()) out.push_back(token);
     }
     return out;
@@ -23,25 +24,25 @@ Controller::Controller(Xwindow* xw)
       xw(xw), abilityUsedThisTurn(false) {}
 
 void Controller::run() {
-    std::cout << "Welcome to RAIInet! Type 'help' for commands." << std::endl;
-    std::string line;
+    cout << "Welcome to RAIInet! Type 'help' for commands." << endl;
+    string line;
     while (true) {
-        std::cout << (setupMode ? "(setup)> " : "> ");
-        if (!std::getline(std::cin, line)) break;
+        cout << (setupMode ? "(setup)> " : "> ");
+        if (!getline(cin, line)) break;
         if (line.empty()) continue;
         if (line == "quit") break;
         processCommand(line);
         if (!setupMode && game.isGameOver()) {
-            std::cout << "Game over!" << std::endl;
+            cout << "Game over!" << endl;
             break;
         }
     }
 }
 
-void Controller::processCommand(const std::string& cmd) {
-    std::istringstream iss(cmd);
-    std::vector<std::string> tokens;
-    for (std::string w; iss >> w; ) tokens.push_back(w);
+void Controller::processCommand(const string& cmd) {
+    istringstream iss(cmd);
+    vector<string> tokens;
+    for (string w; iss >> w; ) tokens.push_back(w);
     if (tokens.empty()) return;
     const auto& c = tokens[0];
 
@@ -54,10 +55,10 @@ void Controller::processCommand(const std::string& cmd) {
             setupMode = false;
             abilityUsedThisTurn = false;
         } else {
-            std::cout << "Game already started." << std::endl;
+            cout << "Game already started." << endl;
         }
     } else if (setupMode) {
-        std::cout << "Unknown setup command '" << c << "'. Type 'help'." << std::endl;
+        cout << "Unknown setup command '" << c << "'. Type 'help'." << endl;
     } else if (c == "ability") {
         parseAbility(tokens);
     } else if (c == "abilities") {
@@ -72,13 +73,13 @@ void Controller::processCommand(const std::string& cmd) {
     } else if (c == "help") {
         printHelp();
     } else {
-        std::cout << "Unknown command '" << c << "'. Type 'help'." << std::endl;
+        cout << "Unknown command '" << c << "'. Type 'help'." << endl;
     }
 }
 
-void Controller::parseMove(const std::vector<std::string>& args) {
+void Controller::parseMove(const vector<string>& args) {
     if (args.size() != 3) {
-        std::cout << "Usage: move <direction> <linkId> (e.g., move up a)" << std::endl;
+        cout << "Usage: move <direction> <linkId> (e.g., move up a)" << endl;
         return;
     }
     abilityUsedThisTurn = false;  // Reset after ability use
@@ -86,79 +87,79 @@ void Controller::parseMove(const std::vector<std::string>& args) {
     game.display();
 }
 
-void Controller::parseAbility(const std::vector<std::string>& args) {
+void Controller::parseAbility(const vector<string>& args) {
     if (abilityUsedThisTurn) {
-        std::cout << "Ability already used this turn." << std::endl;
+        cout << "Ability already used this turn." << endl;
         return;
     }
     if (args.size() < 2) {
-        std::cout << "Usage: ability <index> [args] (index from 1)" << std::endl;
+        cout << "Usage: ability <index> [args] (index from 1)" << endl;
         return;
     }
-    std::vector<std::string> abilityArgs(args.begin() + 2, args.end());
+    vector<string> abilityArgs(args.begin() + 2, args.end());
     game.useAbility(args[1], abilityArgs);
     abilityUsedThisTurn = true;
     game.display();
 }
 
-void Controller::parseSequence(const std::vector<std::string>& args) {
+void Controller::parseSequence(const vector<string>& args) {
     if (args.size() != 2) {
-        std::cout << "Usage: sequence <file>" << std::endl;
+        cout << "Usage: sequence <file>" << endl;
         return;
     }
-    std::ifstream infile(args[1]);
+    ifstream infile(args[1]);
     if (!infile) {
-        std::cout << "Could not open sequence file: " << args[1] << std::endl;
+        cout << "Could not open sequence file: " << args[1] << endl;
         return;
     }
-    std::string line;
-    while (std::getline(infile, line)) {
+    string line;
+    while (getline(infile, line)) {
         if (line.empty()) continue;
         processCommand(line);
         if (game.isGameOver()) break;
     }
 }
 
-void Controller::parseSetup(const std::vector<std::string>& args) {
+void Controller::parseSetup(const vector<string>& args) {
     if (args.size() < 2) {
-        std::cout << "Usage: setup <option> [params]" << std::endl;
+        cout << "Usage: setup <option> [params]" << endl;
         return;
     }
     const auto& opt = args[1];
     if (opt == "link1" && args.size() == 3) {
         game.loadLinkConfig(1, args[2]);
-        std::cout << "Link1 configuration loaded." << std::endl;
+        cout << "Link1 configuration loaded." << endl;
     } else if (opt == "link2" && args.size() == 3) {
         game.loadLinkConfig(2, args[2]);
-        std::cout << "Link2 configuration loaded." << std::endl;
+        cout << "Link2 configuration loaded." << endl;
     } else if (opt == "abilities1" && args.size() == 3) {
         auto order = splitList(args[2]);
         game.setAbilityOrder(1, order);
-        std::cout << "Abilities set for player1." << std::endl;
+        cout << "Abilities set for player1." << endl;
     } else if (opt == "abilities2" && args.size() == 3) {
         auto order = splitList(args[2]);
         game.setAbilityOrder(2, order);
-        std::cout << "Abilities set for player2." << std::endl;
+        cout << "Abilities set for player2." << endl;
     } else if (opt == "enhancements") {
         game.toggleEnhancements();
     } else {
-        std::cout << "Unknown setup option '" << opt << "'. Type 'help'." << std::endl;
+        cout << "Unknown setup option '" << opt << "'. Type 'help'." << endl;
     }
 }
 
 void Controller::printAbilities() {
     auto& abilities = game.getCurrentPlayer().getAbilities(); 
-    std::cout << "Abilities:\n";
+    cout << "Abilities:\n";
     for (int i = 0; i < (int)abilities.size(); ++i) {
         const auto& ability = abilities[i];
-        std::cout << (i+1) << ": " << ability->getType()
+        cout << (i+1) << ": " << ability->getType()
                   << " (" << (ability->isUsed() ? "used" : "unused") << ")\n";
     }
 }
 
 
 void Controller::printHelp() {
-    std::cout << "Commands:\n"
+    cout << "Commands:\n"
               << "  setup link1 <file>           Load link1 configuration\n"
               << "  setup link2 <file>           Load link2 configuration\n"
               << "  setup abilities1 <list>      Comma-separated ability list for P1\n"

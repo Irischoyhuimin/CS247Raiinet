@@ -24,4 +24,4 @@ public:
     std::string getType() const override { return "Firewall"; }
 };
 
-#endif // FIREWALL_H
+#endif
