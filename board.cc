@@ -60,7 +60,7 @@ void Board::move(Player* activePlayer, Player* inactivePlayer, Link& link, int x
     }
     if (!oldCell) return;
 
-    // ---------- OFF-BOARD downloads (must happen BEFORE touching grid[x][y]) ----------
+    // OFF-BOARD downloads (must happen BEFORE touching grid[x][y]) 
     // Moving off the far edge towards opponent = download your own link
     if (x < 0 || x >= size) {
         // Player1 escapes off bottom edge (x == size)
@@ -79,17 +79,17 @@ void Board::move(Player* activePlayer, Player* inactivePlayer, Link& link, int x
         return;
     }
 
-    // Horizontal off-board guard (should be blocked by isInvalidMove anyway)
+    // Horizontal off-board guard
     if (y < 0 || y >= size) return;
 
-    // ---------- Server port: stepping on opponent port -> opponent downloads you ----------
+    // Server port: stepping on opponent port -> opponent downloads you 
     if (grid[x][y].isServerPort()) {
         inactivePlayer->downloadLink(&link);
         oldCell->removeLink();
         return;
     }
 
-    // ---------- Boosted mid-square firewall check (passing THROUGH) ----------
+    // Boosted mid-square firewall check (passing THROUGH) 
     if (link.hasBoost()) {
         int dx = (x > oldX) ? 1 : (x < oldX) ? -1 : 0;
         int dy = (y > oldY) ? 1 : (y < oldY) ? -1 : 0;
@@ -112,8 +112,7 @@ void Board::move(Player* activePlayer, Player* inactivePlayer, Link& link, int x
         }
     }
 
-    // ---------- Destination firewall check (applies BEFORE battle) ----------
-    // If the destination square has opponent's firewall, it triggers first.
+    // Destination firewall check (applies BEFORE battle) 
     if (opponentHasFireWallAt(x, y, inactivePlayer)) {
         // Reveal attacker to both sides
         inactivePlayer->revealLink(link.getId());
@@ -128,7 +127,7 @@ void Board::move(Player* activePlayer, Player* inactivePlayer, Link& link, int x
         // Firewall remains under the piece if it ends up standing there.
     }
 
-    // ---------- Normal move / battle ----------
+    // Normal move / battle 
     Link* target = grid[x][y].getLink();
     if (target && target->getOwner() != activePlayer) {
         // Battle (firewall already applied if present)

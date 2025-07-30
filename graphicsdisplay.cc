@@ -16,6 +16,7 @@ GraphicsDisplay::GraphicsDisplay(Board* b, Xwindow* xw)
       serverPortColor(Xwindow::Yellow),
       linkColorP1(Xwindow::Blue),
       linkColorP2(Xwindow::Red),
+      boardOffsetY(80),
       cellSize(50) // pixels per cell
 {}
 
@@ -53,7 +54,7 @@ void GraphicsDisplay::redrawBoard(const Player* viewer, const Player* opponent) 
 
     // Bottom: opponent’s status
     if (opponent) {
-        drawPlayerStatus(*opponent, viewer, 10, boardH + 80);
+        drawPlayerStatus(*opponent, viewer, 10, boardH + 100);
     }
 }
 
@@ -63,7 +64,7 @@ void GraphicsDisplay::redrawCell(int row, int col, const Player* viewer) {
     Cell& cell = grid[row][col];
 
     const int px = col * cellSize;
-    const int py = row * cellSize;
+    const int py = boardOffsetY + row * cellSize;
 
     // Background
     window->fillRectangle(px, py, cellSize, cellSize, backgroundColor);
@@ -97,7 +98,7 @@ void GraphicsDisplay::redrawCell(int row, int col, const Player* viewer) {
 
 void GraphicsDisplay::drawLink(int row, int col, Link* link, bool revealed) {
     const int px = col * cellSize;
-    const int py = row * cellSize;
+    const int py = boardOffsetY + row * cellSize;
 
     // Colour by reveal+type: unknown=black, Data=green, Virus=red
     int color = Xwindow::Black;
@@ -135,11 +136,11 @@ void GraphicsDisplay::drawGrid() {
     // Vertical lines
     for (int c = 0; c <= size; ++c) {
         int x = c * cellSize;
-        window->drawLine(x, 0, x, h, Xwindow::Black);
+        window->drawLine(x, boardOffsetY, x, h+boardOffsetY, Xwindow::Black);
     }
     // Horizontal lines
     for (int r = 0; r <= size; ++r) {
         int y = r * cellSize;
-        window->drawLine(0, y, w, y, Xwindow::Black);
+        window->drawLine(0, y+boardOffsetY, w, y+boardOffsetY, Xwindow::Black);
     }
 }

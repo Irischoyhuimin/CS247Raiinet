@@ -33,7 +33,7 @@ int main(int argc, char* argv[]) {
 
     if (graphics) {
         // Create an actual X window; pick any reasonable size
-        xw = new Xwindow(400, 400+120);
+        xw = new Xwindow(400, 400+160);
         controller = new Controller(xw);     // <-- uses Game(Xwindow*)
     } else {
         controller = new Controller(true);   // <-- text-only path

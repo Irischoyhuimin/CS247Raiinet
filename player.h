@@ -19,23 +19,23 @@ class Player {
 public:
     explicit Player(const std::string& name);
 
-    // --- Link management ---
+    //  Link management 
     void addLink(Link* link);
     Link* getLinkById(char id) const;
     const std::vector<std::unique_ptr<Link>>& getLinks() const;
     std::vector<std::unique_ptr<Link>>& getLinks();
 
-    // --- Ability management ---
+    //  Ability management 
     void addAbility(Ability* ability);
     std::vector<std::unique_ptr<Ability>>& getAbilities();
     void useAbility(int abilityIndex, const std::vector<std::string>& args, Player& opponent, Board& board);
 
-    // --- Download tracking ---
+    //  Download tracking 
     void downloadLink(Link* link);
     int getDataDownloaded()  const;
     int getVirusDownloaded() const;
 
-    // --- Misc ---
+    //  Misc 
     const std::string& getName() const;
     int getAbilityUsesLeft() const;
     void printStatus(const Player& viewer) const;

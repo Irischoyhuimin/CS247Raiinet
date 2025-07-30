@@ -124,8 +124,7 @@ void Game::display() const {
     inactivePlayer->printStatus(*activePlayer);
     if (auto gd = board.getGD()) {
         gd->update(activePlayer, inactivePlayer);//  force GUI redraw each call to display()
-        gd->drawPlayerStatus(*activePlayer, activePlayer, 10, 420);
-        gd->drawPlayerStatus(*inactivePlayer, activePlayer, 10, 460);
+     
     }
 }
 

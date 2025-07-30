@@ -26,6 +26,7 @@ class GraphicsDisplay : public Observer {
     int serverPortColor;
     int linkColorP1;
     int linkColorP2;
+    int boardOffsetY;
 public:
     GraphicsDisplay(Board* b, Xwindow* xw);
     void update() override;
