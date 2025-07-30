@@ -1,6 +1,6 @@
 CXX	= g++
-CXXFLAGS	= -std=c++17 -I/opt/X11/include
-LDFLAGS	= -L/opt/X11/lib -lX11
+CXXFLAGS	= -std=c++17 -I/opt/X11/include -fsanitize=address -fno-omit-frame-pointer -g
+LDFLAGS	= -L/opt/X11/lib -lX11 -fsanitize=address
 
 SRCS	= $(wildcard *.cc)
 OBJS	 = $(SRCS:.cc=.o)

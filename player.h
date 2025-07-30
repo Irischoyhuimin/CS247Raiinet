@@ -6,7 +6,7 @@
 #include <set>
 #include "link.h"
 #include "ability.h"
-
+class Board; 
 class Player {
     std::string name;
     std::vector<std::unique_ptr<Link>>    links;
@@ -33,4 +33,8 @@ public:
     void printStatus(const Player& viewer) const;
     void revealLink(char linkId);
     bool isLinkRevealed(char linkId) const;
+    void concealOpponentLink(char id);
+    void replaceLink(Link* oldL, Link* newL);
+    void setAbilityUsesLeft(int n) { abilityUsesLeft = n; }
+    string getStatusString(const Player& viewer) const;
 };

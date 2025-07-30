@@ -8,13 +8,21 @@
 class MaskAbility : public Ability {
 public:
     MaskAbility() { used = false; }
-    void apply(Player& activePlayer, Player& opponentPlayer) override {
-        // Conceal link IDs until next scan
-        std::cout << "Mask applied: link IDs hidden until next scan.\n";
-        for (auto& lptr : activePlayer.getLinks()) {
-            lptr->setBoost(false); // use boost flag as mask placeholder
+    void apply(Player& active, Player& opponent, const std::vector<std::string>& args, Board& /*board*/) override {
+        if (args.size() < 1) {
+            std::cout << "Usage: ability <index> <linkId>\n";
+            return;
         }
-        markUsed();
+
+        char id = args[0][0];
+        Link* myLink = active.getLinkById(id);
+        if (!myLink || myLink->downloaded()) {
+            std::cout << "Invalid link to mask.\n";
+            return;
+        }
+        opponent.concealOpponentLink(id);
+
+        std::cout << "Masked link " << id << " (opponent now sees '?').\n";
     }
     bool isValid(Player& player) const override {
         // Can use if not yet used

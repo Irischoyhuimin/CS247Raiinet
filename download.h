@@ -7,15 +7,28 @@
 class Download : public Ability {
 public:
     Download() { used = false; }
-    void apply(Player& activePlayer, Player& opponentPlayer) override {
-        // Download the first available non-downloaded link
-        for (auto& lptr : activePlayer.getLinks()) {
-            if (!lptr->downloaded()) {
-                activePlayer.downloadLink(lptr.get());
-                break;
-            }
+    void apply(Player& active, Player& opponent, const std::vector<std::string>& args, Board& board) {
+        if (args.size() < 1) {
+            std::cout << "Usage: ability <index> <linkId>\n";
+            return;
         }
-        markUsed();
+
+        char targetId = args[0][0];
+        Link* target = opponent.getLinkById(targetId);
+        if (!target || target->downloaded()) {
+            std::cout << "Invalid target link for download.\n";
+            return;
+        }
+
+        // Remove from the board
+        if (Cell* cell = board.findCellOf(target)) {
+            cell->removeLink();             // clears the piece from the grid
+        }
+
+        // Mark as downloaded (updates D/V counters)
+        opponent.downloadLink(target);
+
+        std::cout << "Downloaded opponent's link " << targetId << ".\n";
     }
     bool isValid(Player& player) const override {
         // Can use if not yet used and at least one link is available to download

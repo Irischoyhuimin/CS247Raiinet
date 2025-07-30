@@ -17,7 +17,6 @@ public:
     Link(char id, Player* owner, int strength);
     virtual ~Link() = default;
     virtual std::string getType() const = 0;
-
     char getId() const;
     Player* getOwner() const;
     int getStrength() const;

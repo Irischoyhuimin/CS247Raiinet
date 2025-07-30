@@ -12,6 +12,9 @@ class Controller {
     bool textOnly;
     Xwindow* xw;
     bool abilityUsedThisTurn;
+    bool gameOver = false;
+    bool link1Loaded = false;
+    bool link2Loaded = false;
 
 public:
     Controller(bool textOnly);
@@ -24,6 +27,7 @@ public:
     void parseSequence(const std::vector<std::string>& args);
     void parseSetup(const std::vector<std::string>& args);
     void printHelp();
+    void startGameIfReady();
 };
 
 #endif 
