@@ -44,4 +44,4 @@ public:
     string getType() const override { return "LinkBoost"; }
 };
 
-#endif // LINKBOOST_H
+#endif 

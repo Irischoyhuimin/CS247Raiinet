@@ -31,4 +31,4 @@ public:
     string getType() const override { return "Mask"; }
 };
 
-#endif // MASK_H
+#endif 

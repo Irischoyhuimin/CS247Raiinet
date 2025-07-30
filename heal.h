@@ -51,4 +51,4 @@ public:
     string getType() const override { return "Heal"; }
 };
 
-#endif // HEAL_H
+#endif 

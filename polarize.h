@@ -49,4 +49,4 @@ public:
     string getType() const override { return "Polarize"; }
 };
 
-#endif // POLARIZE_H
+#endif

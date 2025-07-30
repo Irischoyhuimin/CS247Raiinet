@@ -41,4 +41,4 @@ public:
     string getType() const override { return "Download"; }
 };
 
-#endif // DOWNLOAD_H
+#endif 
